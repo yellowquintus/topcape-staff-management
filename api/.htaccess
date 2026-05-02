@@ -1,0 +1,5 @@
+# staff.php 供其他工具（包含無登入的 fill.html）呼叫讀取名單
+<Files "staff.php">
+  AuthType None
+  Require all granted
+</Files>

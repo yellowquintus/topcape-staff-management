@@ -1,0 +1,14 @@
+[
+  {"id":"sherry","name":"周怡萱","group":"管理組","company":"兩者","title":"執行長","phone":"0937-560500","email":"sherry.c@topcape.com.tw","status":"在職","joinDate":"","leaveDate":"","birthday":""},
+  {"id":"quintus","name":"施清仁","group":"管理組","company":"兩者","title":"執行長","phone":"0912-054565","email":"quintus.s@topcape.com.tw","status":"在職","joinDate":"","leaveDate":"","birthday":""},
+  {"id":"sophie","name":"劉渝彙","group":"管理組","company":"兩者","title":"","phone":"0983-110501","email":"sophie.l@topcape.com.tw","status":"在職","joinDate":"","leaveDate":"","birthday":""},
+  {"id":"jamie","name":"林群棉","group":"企劃組","company":"兩者","title":"","phone":"0912-134607","email":"jamie.l@topcape.com.tw","status":"在職","joinDate":"","leaveDate":"","birthday":""},
+  {"id":"fangyan","name":"林芳嬿","group":"企劃組","company":"兩者","title":"","phone":"0970-856703","email":"fangyan.l@topcape.com.tw","status":"在職","joinDate":"","leaveDate":"","birthday":""},
+  {"id":"cissy","name":"江育庭","group":"企劃組","company":"兩者","title":"","phone":"0975-112853","email":"cissy.c@topcape.com.tw","status":"在職","joinDate":"","leaveDate":"","birthday":""},
+  {"id":"matsu","name":"林孟俞","group":"設計組","company":"兩者","title":"","phone":"0970-770509","email":"matsu.l@topcape.com.tw","status":"在職","joinDate":"","leaveDate":"","birthday":""},
+  {"id":"joy","name":"黃彥亭","group":"設計組","company":"兩者","title":"","phone":"0908-831552","email":"joy.h@topcape.com.tw","status":"在職","joinDate":"","leaveDate":"","birthday":""},
+  {"id":"amy","name":"吳冠郁","group":"設計組","company":"兩者","title":"","phone":"0939-070682","email":"amy.w@topcape.com.tw","status":"在職","joinDate":"","leaveDate":"","birthday":""},
+  {"id":"vanessa","name":"房思羽","group":"基地組","company":"兩者","title":"","phone":"0983-087823","email":"vanessa.f@topcape.com.tw","status":"在職","joinDate":"","leaveDate":"","birthday":""},
+  {"id":"mark","name":"蘇聖祺","group":"基地組","company":"兩者","title":"","phone":"0976-826598","email":"mark.s@topcape.com.tw","status":"在職","joinDate":"","leaveDate":"","birthday":""},
+  {"id":"lisa","name":"蘇姵縈","group":"基地組","company":"兩者","title":"","phone":"0981-660087","email":"lisa.s@topcape.com.tw","status":"在職","joinDate":"","leaveDate":"","birthday":""}
+]
