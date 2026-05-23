@@ -28,6 +28,7 @@ function sanitizeEntry(array $body, array $base): array {
     foreach (['name','group','company','title','phone','email','status','joinDate','leaveDate','birthday'] as $f) {
         if (array_key_exists($f, $body)) $s[$f] = trim((string)($body[$f] ?? ''));
     }
+    if (array_key_exists('isManager', $body)) $s['isManager'] = (bool)$body['isManager'];
     // 標記離職時自動填入今日
     if (($s['status'] ?? '在職') === '離職' && empty($s['leaveDate'])) {
         $s['leaveDate'] = date('Y-m-d');
@@ -80,6 +81,7 @@ if ($action === 'create') {
         'joinDate'  => '',
         'leaveDate' => '',
         'birthday'  => '',
+        'isManager' => false,
     ];
     $entry = sanitizeEntry($body, $defaults);
     $entry['id'] = $id;

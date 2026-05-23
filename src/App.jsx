@@ -86,7 +86,7 @@ export default function App() {
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
           <a href="/tools/" className="text-white/60 hover:text-white text-sm transition-colors">← 工具首頁</a>
           <span className="text-white/30">|</span>
-          <span className="font-bold text-white text-lg" style={{ fontFamily: 'Poppins, sans-serif' }}>同仁管理中心</span>
+          <span className="font-bold text-white text-lg" style={{ fontFamily: 'Poppins, sans-serif' }}>同仁資料管理</span>
           <span className="text-xs text-white/80 border border-white/30 rounded-full px-2 py-0.5">Staff</span>
           <span className="text-white/60 text-sm ml-auto">{activeCount} 位在職</span>
         </div>

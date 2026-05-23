@@ -21,7 +21,7 @@ export default function StaffModal({ mode, staff, onSave, onClose }) {
   const [form, setForm] = useState(staff || {
     name: '', group: '管理組', company: '兩者', title: '',
     phone: '', email: '', status: '在職',
-    joinDate: '', leaveDate: '', birthday: '',
+    joinDate: '', leaveDate: '', birthday: '', isManager: false,
   });
   const [errors, setErrors] = useState({});
 
@@ -79,6 +79,11 @@ export default function StaffModal({ mode, staff, onSave, onClose }) {
             <Field label="職稱">
               <input value={form.title || ''} onChange={e => set('title', e.target.value)}
                 className={inputCls()} placeholder="例：企劃專員" />
+              <label className="flex items-center gap-1.5 mt-2 cursor-pointer select-none">
+                <input type="checkbox" checked={!!form.isManager} onChange={e => set('isManager', e.target.checked)}
+                  className="w-4 h-4 accent-[#7a00df] cursor-pointer" />
+                <span className="text-xs text-gray-500">管理職（膳雜費 $700）</span>
+              </label>
             </Field>
             <Field label="手機">
               <input value={form.phone || ''} onChange={e => set('phone', e.target.value)}
