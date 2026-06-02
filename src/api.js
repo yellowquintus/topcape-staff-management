@@ -36,3 +36,13 @@ export async function deleteStaff(id) {
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   return res.json();
 }
+
+export async function addHistoryEntry(id, entry) {
+  const res = await fetch(`${BASE}?action=add_history`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ id, entry }),
+  });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return res.json();
+}

@@ -2,6 +2,8 @@ import { useState } from 'react';
 
 const GROUPS = ['管理組', '企劃組', '設計組', '基地組'];
 const COMPANIES = ['開譜', '開闊', '兩者'];
+const GENDERS = ['男', '女', '其他'];
+const EMPLOYMENT_TYPES = ['正職', '約聘', '部分工時', '定期契約', '派遣'];
 
 const inputCls = (error) =>
   `w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 transition-colors
@@ -22,6 +24,8 @@ export default function StaffModal({ mode, staff, onSave, onClose }) {
     name: '', group: '管理組', company: '兩者', title: '',
     phone: '', email: '', status: '在職',
     joinDate: '', leaveDate: '', birthday: '', isManager: false,
+    gender: '', employmentType: '正職', probationEndDate: '',
+    emergencyContactName: '', emergencyContactPhone: '',
   });
   const [errors, setErrors] = useState({});
 
@@ -30,7 +34,6 @@ export default function StaffModal({ mode, staff, onSave, onClose }) {
   const validate = () => {
     const errs = {};
     if (!form.name?.trim()) errs.name = '必填';
-    if (!form.email?.trim()) errs.email = '必填';
     if (!form.group) errs.group = '必填';
     if (!form.company) errs.company = '必填';
     setErrors(errs);
@@ -58,7 +61,7 @@ export default function StaffModal({ mode, staff, onSave, onClose }) {
               <input value={form.name} onChange={e => set('name', e.target.value)}
                 className={inputCls(errors.name)} placeholder="例：施清仁" />
             </Field>
-            <Field label="Email *" error={errors.email}>
+            <Field label="Email" error={errors.email}>
               <input type="email" value={form.email} onChange={e => set('email', e.target.value)}
                 className={inputCls(errors.email)} placeholder="name@topcape.com.tw" />
             </Field>
@@ -91,28 +94,58 @@ export default function StaffModal({ mode, staff, onSave, onClose }) {
             </Field>
           </div>
           <div className="grid grid-cols-2 gap-4">
+            <Field label="性別">
+              <select value={form.gender || ''} onChange={e => set('gender', e.target.value)} className={inputCls()}>
+                <option value="">請選擇</option>
+                {GENDERS.map(g => <option key={g}>{g}</option>)}
+              </select>
+            </Field>
+            <Field label="雇用類型">
+              <select value={form.employmentType || '正職'} onChange={e => set('employmentType', e.target.value)} className={inputCls()}>
+                {EMPLOYMENT_TYPES.map(t => <option key={t}>{t}</option>)}
+              </select>
+            </Field>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
             <Field label="入職日期">
               <input type="date" value={form.joinDate || ''} onChange={e => set('joinDate', e.target.value)}
                 className={inputCls()} />
             </Field>
-            <Field label="生日">
-              <input type="date" value={form.birthday || ''} onChange={e => set('birthday', e.target.value)}
+            <Field label="試用期結束日">
+              <input type="date" value={form.probationEndDate || ''} onChange={e => set('probationEndDate', e.target.value)}
                 className={inputCls()} />
             </Field>
           </div>
           <div className="grid grid-cols-2 gap-4">
+            <Field label="生日">
+              <input type="date" value={form.birthday || ''} onChange={e => set('birthday', e.target.value)}
+                className={inputCls()} />
+            </Field>
             <Field label="在職狀態">
               <select value={form.status} onChange={e => set('status', e.target.value)} className={inputCls()}>
                 <option>在職</option>
                 <option>離職</option>
               </select>
             </Field>
-            {form.status === '離職' && (
-              <Field label="離職日期">
-                <input type="date" value={form.leaveDate || ''} onChange={e => set('leaveDate', e.target.value)}
-                  className={inputCls()} />
+          </div>
+          {form.status === '離職' && (
+            <Field label="離職日期">
+              <input type="date" value={form.leaveDate || ''} onChange={e => set('leaveDate', e.target.value)}
+                className={inputCls()} />
+            </Field>
+          )}
+          <div className="border-t border-gray-100 pt-4">
+            <p className="text-xs font-medium text-gray-400 mb-3">緊急聯絡人</p>
+            <div className="grid grid-cols-2 gap-4">
+              <Field label="姓名">
+                <input value={form.emergencyContactName || ''} onChange={e => set('emergencyContactName', e.target.value)}
+                  className={inputCls()} placeholder="例：施清仁" />
               </Field>
-            )}
+              <Field label="電話">
+                <input value={form.emergencyContactPhone || ''} onChange={e => set('emergencyContactPhone', e.target.value)}
+                  className={inputCls()} placeholder="0912-345678" />
+              </Field>
+            </div>
           </div>
           <div className="pt-2 flex gap-3 justify-end border-t border-gray-100">
             <button type="button" onClick={onClose}

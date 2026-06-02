@@ -1,14 +1,1382 @@
 [
-  {"id":"sherry","name":"周怡萱","group":"管理組","company":"兩者","title":"執行長","phone":"0937-560500","email":"sherry.c@topcape.com.tw","status":"在職","joinDate":"","leaveDate":"","birthday":""},
-  {"id":"quintus","name":"施清仁","group":"管理組","company":"兩者","title":"執行長","phone":"0912-054565","email":"quintus.s@topcape.com.tw","status":"在職","joinDate":"","leaveDate":"","birthday":""},
-  {"id":"sophie","name":"劉渝彙","group":"管理組","company":"兩者","title":"","phone":"0983-110501","email":"sophie.l@topcape.com.tw","status":"在職","joinDate":"","leaveDate":"","birthday":""},
-  {"id":"jamie","name":"林群棉","group":"企劃組","company":"兩者","title":"","phone":"0912-134607","email":"jamie.l@topcape.com.tw","status":"在職","joinDate":"","leaveDate":"","birthday":""},
-  {"id":"fangyan","name":"林芳嬿","group":"企劃組","company":"兩者","title":"","phone":"0970-856703","email":"fangyan.l@topcape.com.tw","status":"在職","joinDate":"","leaveDate":"","birthday":""},
-  {"id":"cissy","name":"江育庭","group":"企劃組","company":"兩者","title":"","phone":"0975-112853","email":"cissy.c@topcape.com.tw","status":"在職","joinDate":"","leaveDate":"","birthday":""},
-  {"id":"matsu","name":"林孟俞","group":"設計組","company":"兩者","title":"","phone":"0970-770509","email":"matsu.l@topcape.com.tw","status":"在職","joinDate":"","leaveDate":"","birthday":""},
-  {"id":"joy","name":"黃彥亭","group":"設計組","company":"兩者","title":"","phone":"0908-831552","email":"joy.h@topcape.com.tw","status":"在職","joinDate":"","leaveDate":"","birthday":""},
-  {"id":"amy","name":"吳冠郁","group":"設計組","company":"兩者","title":"","phone":"0939-070682","email":"amy.w@topcape.com.tw","status":"在職","joinDate":"","leaveDate":"","birthday":""},
-  {"id":"vanessa","name":"房思羽","group":"基地組","company":"兩者","title":"","phone":"0983-087823","email":"vanessa.f@topcape.com.tw","status":"在職","joinDate":"","leaveDate":"","birthday":""},
-  {"id":"mark","name":"蘇聖祺","group":"基地組","company":"兩者","title":"","phone":"0976-826598","email":"mark.s@topcape.com.tw","status":"在職","joinDate":"","leaveDate":"","birthday":""},
-  {"id":"lisa","name":"蘇姵縈","group":"基地組","company":"兩者","title":"","phone":"0981-660087","email":"lisa.s@topcape.com.tw","status":"在職","joinDate":"","leaveDate":"","birthday":""}
+  {
+    "id": "sherry",
+    "name": "周怡萱",
+    "group": "管理組",
+    "company": "兩者",
+    "title": "執行長",
+    "phone": "0937-560055",
+    "email": "sherry.c@topcape.com.tw",
+    "status": "在職",
+    "joinDate": "2014-01-01",
+    "leaveDate": "",
+    "birthday": "1980-02-22",
+    "isManager": true,
+    "gender": "女",
+    "employmentType": "正職",
+    "probationEndDate": "",
+    "emergencyContactName": "周芮宇",
+    "emergencyContactPhone": "0937-388051",
+    "employmentHistory": [
+      {
+        "date": "2014-01-01",
+        "action": "到職",
+        "note": "開闊策略（推估，早期無保險記錄）",
+        "countsSeniority": true
+      },
+      {
+        "date": "2023-02-28",
+        "action": "轉公司",
+        "note": "正式掛保於開闊策略",
+        "countsSeniority": true
+      }
+    ]
+  },
+  {
+    "id": "quintus",
+    "name": "施清仁",
+    "group": "管理組",
+    "company": "兩者",
+    "title": "副執行長",
+    "phone": "0912-054565",
+    "email": "quintus.s@topcape.com.tw",
+    "status": "在職",
+    "joinDate": "2013-09-02",
+    "leaveDate": "",
+    "birthday": "1983-11-13",
+    "isManager": true,
+    "gender": "男",
+    "employmentType": "正職",
+    "probationEndDate": "",
+    "emergencyContactName": "馮緞圓",
+    "emergencyContactPhone": "0912-782981",
+    "employmentHistory": [
+      {
+        "date": "2013-09-02",
+        "action": "到職",
+        "note": "開譜國際",
+        "countsSeniority": true
+      },
+      {
+        "date": "2015-06-29",
+        "action": "退保",
+        "note": "掛保屏東縣愛鄉協會執行計畫人事費",
+        "countsSeniority": true
+      },
+      {
+        "date": "2015-12-31",
+        "action": "復保",
+        "note": "開譜國際",
+        "countsSeniority": true
+      },
+      {
+        "date": "2017-09-30",
+        "action": "退保",
+        "note": "掛保屏東縣愛鄉協會執行計畫人事費",
+        "countsSeniority": true
+      },
+      {
+        "date": "2019-01-03",
+        "action": "復保",
+        "note": "開譜國際",
+        "countsSeniority": true
+      },
+      {
+        "date": "2019-04-30",
+        "action": "退保",
+        "note": "掛保屏東縣愛鄉協會執行計畫人事費",
+        "countsSeniority": true
+      },
+      {
+        "date": "2021-03-01",
+        "action": "復保",
+        "note": "開譜國際（目前在職）",
+        "countsSeniority": true
+      }
+    ]
+  },
+  {
+    "id": "sophie",
+    "name": "劉渝彙",
+    "group": "管理組",
+    "company": "開譜",
+    "title": "執行秘書",
+    "phone": "0983-110501",
+    "email": "sophie.l@topcape.com.tw",
+    "status": "在職",
+    "joinDate": "2017-08-01",
+    "leaveDate": "",
+    "birthday": "1994-09-09",
+    "isManager": true,
+    "gender": "女",
+    "employmentType": "正職",
+    "probationEndDate": "",
+    "emergencyContactName": "林英美",
+    "emergencyContactPhone": "0918-034936",
+    "employmentHistory": [
+      {
+        "date": "2017-04-06",
+        "action": "到職",
+        "note": "開譜國際（部分工時，不計年資）",
+        "countsSeniority": false
+      },
+      {
+        "date": "2017-05-11",
+        "action": "退保",
+        "note": "部分工時結束（短暫中斷）",
+        "countsSeniority": false
+      },
+      {
+        "date": "2017-06-20",
+        "action": "加保",
+        "note": "開譜國際（部分工時，不計年資）",
+        "countsSeniority": false
+      },
+      {
+        "date": "2017-07-31",
+        "action": "退保",
+        "note": "部分工時結束",
+        "countsSeniority": false
+      },
+      {
+        "date": "2017-08-01",
+        "action": "到職",
+        "note": "開譜國際（正式到職，計年資起算）",
+        "countsSeniority": true
+      },
+      {
+        "date": "2019-04-30",
+        "action": "退保",
+        "note": "掛保屏東縣愛鄉協會執行計畫人事費（計年資）",
+        "countsSeniority": true
+      },
+      {
+        "date": "2021-03-01",
+        "action": "復保",
+        "note": "開譜國際",
+        "countsSeniority": true
+      },
+      {
+        "date": "2021-07-01",
+        "action": "留職停薪",
+        "note": "（不計年資）",
+        "countsSeniority": false
+      },
+      {
+        "date": "2021-09-01",
+        "action": "復職",
+        "note": "留職停薪結束，開譜國際（目前在職）",
+        "countsSeniority": true
+      }
+    ]
+  },
+  {
+    "id": "jamie",
+    "name": "林群棉",
+    "group": "企劃組",
+    "company": "開闊",
+    "title": "主任/資深專案經理",
+    "phone": "0912-134607",
+    "email": "jamie.l@topcape.com.tw",
+    "status": "在職",
+    "joinDate": "2019-05-01",
+    "leaveDate": "",
+    "birthday": "1988-02-06",
+    "isManager": true,
+    "gender": "女",
+    "employmentType": "正職",
+    "probationEndDate": "",
+    "emergencyContactName": "余貴里",
+    "emergencyContactPhone": "0937-682815",
+    "employmentHistory": [
+      {
+        "date": "2019-05-01",
+        "action": "到職",
+        "note": "開譜國際",
+        "countsSeniority": true
+      },
+      {
+        "date": "2026-06-01",
+        "action": "轉公司",
+        "note": "開譜 → 開闊策略",
+        "countsSeniority": true
+      }
+    ]
+  },
+  {
+    "id": "fangyan",
+    "name": "林芳嬿",
+    "group": "企劃組",
+    "company": "開譜",
+    "title": "",
+    "phone": "0970-856703",
+    "email": "fangyan.l@topcape.com.tw",
+    "status": "在職",
+    "joinDate": "2022-09-01",
+    "leaveDate": "",
+    "birthday": "1999-02-05",
+    "isManager": false,
+    "gender": "女",
+    "employmentType": "正職",
+    "probationEndDate": "",
+    "emergencyContactName": "賴惠娟",
+    "emergencyContactPhone": "0965-810696",
+    "employmentHistory": [
+      {
+        "date": "2022-09-01",
+        "action": "到職",
+        "note": "開譜國際",
+        "countsSeniority": true
+      }
+    ]
+  },
+  {
+    "id": "cissy",
+    "name": "江育庭",
+    "group": "企劃組",
+    "company": "開譜",
+    "title": "專案助理",
+    "phone": "0975-112853",
+    "email": "cissy.c@topcape.com.tw",
+    "status": "在職",
+    "joinDate": "2021-12-01",
+    "leaveDate": "",
+    "birthday": "1997-04-24",
+    "isManager": false,
+    "gender": "女",
+    "employmentType": "正職",
+    "probationEndDate": "",
+    "emergencyContactName": "林雅芳",
+    "emergencyContactPhone": "0975-587750",
+    "employmentHistory": [
+      {
+        "date": "2021-12-01",
+        "action": "到職",
+        "note": "開譜國際",
+        "countsSeniority": true
+      }
+    ]
+  },
+  {
+    "id": "matsu",
+    "name": "林孟俞",
+    "group": "設計組",
+    "company": "開譜",
+    "title": "主任/資深設計師",
+    "phone": "0970-770509",
+    "email": "matsu.l@topcape.com.tw",
+    "status": "在職",
+    "joinDate": "2020-09-01",
+    "leaveDate": "",
+    "birthday": "1997-05-14",
+    "isManager": false,
+    "gender": "女",
+    "employmentType": "正職",
+    "probationEndDate": "",
+    "emergencyContactName": "賴惠娟",
+    "emergencyContactPhone": "0965-810696",
+    "employmentHistory": [
+      {
+        "date": "2020-09-01",
+        "action": "到職",
+        "note": "開譜國際",
+        "countsSeniority": true
+      }
+    ]
+  },
+  {
+    "id": "joy",
+    "name": "黃彥亭",
+    "group": "設計組",
+    "company": "開譜",
+    "title": "資深設計師",
+    "phone": "0908-831552",
+    "email": "joy.h@topcape.com.tw",
+    "status": "在職",
+    "joinDate": "2019-06-01",
+    "leaveDate": "",
+    "birthday": "1995-05-18",
+    "isManager": false,
+    "gender": "女",
+    "employmentType": "正職",
+    "probationEndDate": "",
+    "emergencyContactName": "易中秋",
+    "emergencyContactPhone": "0968-699339",
+    "employmentHistory": [
+      {
+        "date": "2019-06-01",
+        "action": "到職",
+        "note": "開譜國際",
+        "countsSeniority": true
+      },
+      {
+        "date": "2026-06-01",
+        "action": "轉公司",
+        "note": "開譜 → 開闊策略",
+        "countsSeniority": true
+      }
+    ]
+  },
+  {
+    "id": "amy",
+    "name": "吳冠郁",
+    "group": "設計組",
+    "company": "開譜",
+    "title": "設計師",
+    "phone": "0939-070682",
+    "email": "amy.w@topcape.com.tw",
+    "status": "在職",
+    "joinDate": "2023-06-15",
+    "leaveDate": "",
+    "birthday": "1997-11-28",
+    "isManager": false,
+    "gender": "女",
+    "employmentType": "正職",
+    "probationEndDate": "",
+    "emergencyContactName": "康惠紅",
+    "emergencyContactPhone": "0933-548323",
+    "employmentHistory": [
+      {
+        "date": "2023-06-15",
+        "action": "到職",
+        "note": "開譜國際",
+        "countsSeniority": true
+      }
+    ]
+  },
+  {
+    "id": "vanessa",
+    "name": "房思羽",
+    "group": "基地組",
+    "company": "開闊",
+    "title": "主任/專案經理",
+    "phone": "0983-087823",
+    "email": "vanessa.f@topcape.com.tw",
+    "status": "在職",
+    "joinDate": "2023-04-01",
+    "leaveDate": "",
+    "birthday": "2001-02-05",
+    "isManager": true,
+    "gender": "女",
+    "employmentType": "正職",
+    "probationEndDate": "",
+    "emergencyContactName": "楊千慧",
+    "emergencyContactPhone": "0939-526516",
+    "employmentHistory": [
+      {
+        "date": "2023-04-01",
+        "action": "到職",
+        "note": "開闊策略",
+        "countsSeniority": true
+      }
+    ]
+  },
+  {
+    "id": "mark",
+    "name": "蘇聖祺",
+    "group": "基地組",
+    "company": "開闊",
+    "title": "專案經理",
+    "phone": "0976-826598",
+    "email": "mark.s@topcape.com.tw",
+    "status": "在職",
+    "joinDate": "2022-04-01",
+    "leaveDate": "",
+    "birthday": "1998-09-24",
+    "isManager": false,
+    "gender": "男",
+    "employmentType": "正職",
+    "probationEndDate": "",
+    "emergencyContactName": "蘇金茂",
+    "emergencyContactPhone": "0922-326997",
+    "employmentHistory": [
+      {
+        "date": "2021-10-07",
+        "action": "到職",
+        "note": "開闊策略（部分工時）",
+        "countsSeniority": false
+      },
+      {
+        "date": "2021-11-30",
+        "action": "退保",
+        "note": "部分工時結束，入伍服役",
+        "countsSeniority": false
+      },
+      {
+        "date": "2022-04-01",
+        "action": "到職",
+        "note": "開闊策略（退伍，正職官方到職日）",
+        "countsSeniority": true
+      },
+      {
+        "date": "2023-02-28",
+        "action": "轉公司",
+        "note": "開闊 → 開譜（換投保單位，連續在職）",
+        "countsSeniority": true
+      }
+    ]
+  },
+  {
+    "id": "lisa",
+    "name": "蘇姵縈",
+    "group": "基地組",
+    "company": "開闊",
+    "title": "專案經理",
+    "phone": "0981-660087",
+    "email": "lisa.s@topcape.com.tw",
+    "status": "在職",
+    "joinDate": "2024-09-01",
+    "leaveDate": "",
+    "birthday": "2003-02-04",
+    "isManager": false,
+    "gender": "女",
+    "employmentType": "正職",
+    "probationEndDate": "",
+    "emergencyContactName": "曾瑞雲",
+    "emergencyContactPhone": "0936-124250",
+    "employmentHistory": [
+      {
+        "date": "2024-09-01",
+        "action": "到職",
+        "note": "開闊策略",
+        "countsSeniority": true
+      }
+    ]
+  },
+  {
+    "id": "staff1780071089",
+    "name": "林雨楨",
+    "group": "設計組",
+    "company": "開譜",
+    "title": "專案設計師",
+    "phone": "0928-784163",
+    "email": "ame.l@topcape.com.tw",
+    "status": "在職",
+    "joinDate": "2026-06-01",
+    "leaveDate": "",
+    "birthday": "1992-10-22",
+    "isManager": false,
+    "gender": "女",
+    "employmentType": "正職",
+    "probationEndDate": "",
+    "emergencyContactName": "林立偉",
+    "emergencyContactPhone": "0921-031567",
+    "employmentHistory": [
+      {
+        "date": "2026-06-01",
+        "action": "到職",
+        "note": "開譜國際",
+        "countsSeniority": true
+      }
+    ]
+  },
+  {
+    "id": "staff1780409129",
+    "name": "林郁靜",
+    "group": "基地組",
+    "company": "開闊",
+    "title": "行政助理",
+    "phone": "0928-696661",
+    "email": "rola.l@topcape.com.tw",
+    "status": "在職",
+    "joinDate": "2025-07-15",
+    "leaveDate": "",
+    "birthday": "1993-12-03",
+    "isManager": false,
+    "gender": "女",
+    "employmentType": "約聘",
+    "probationEndDate": "",
+    "emergencyContactName": "林忠文",
+    "emergencyContactPhone": "0912-746200",
+    "employmentHistory": [
+      {
+        "date": "2025-07-15",
+        "action": "到職",
+        "note": "開闊策略",
+        "countsSeniority": true
+      },
+      {
+        "date": "2026-03-01",
+        "action": "轉兼職",
+        "note": "投保金額不變，轉部分工時",
+        "countsSeniority": false
+      }
+    ]
+  },
+  {
+    "id": "staff411061945",
+    "name": "許惠閔",
+    "group": "基地組",
+    "company": "開闊",
+    "title": "專案經理",
+    "phone": "0927-966380",
+    "email": "fair.min@msa.hinet.net",
+    "status": "在職",
+    "joinDate": "2025-06-01",
+    "leaveDate": "",
+    "birthday": "1968-07-14",
+    "isManager": false,
+    "gender": "女",
+    "employmentType": "正職",
+    "probationEndDate": "",
+    "emergencyContactName": "陳家真",
+    "emergencyContactPhone": "0983-569234",
+    "employmentHistory": [
+      {
+        "date": "2021-09-30",
+        "action": "加保",
+        "note": "開闊策略（部分工時，不計年資）",
+        "countsSeniority": false
+      },
+      {
+        "date": "2021-10-02",
+        "action": "退保",
+        "note": "短暫退保，改掛其他方式，繼續部分工時工作",
+        "countsSeniority": false
+      },
+      {
+        "date": "2023-04-06",
+        "action": "加保",
+        "note": "開闊策略（部分工時轉正式投保，第一次在職期）",
+        "countsSeniority": false
+      },
+      {
+        "date": "2024-08-31",
+        "action": "離職",
+        "note": "離職（年資結算）",
+        "countsSeniority": false
+      },
+      {
+        "date": "2025-06-01",
+        "action": "到職",
+        "note": "開闊策略（重新入職，年資重新起算）",
+        "countsSeniority": true
+      }
+    ]
+  },
+  {
+    "id": "staff411061956",
+    "name": "李定騰",
+    "group": "管理組",
+    "company": "開譜",
+    "title": "工讀生",
+    "phone": "0916-667499",
+    "email": "wilson891020@gmail.com",
+    "status": "在職",
+    "joinDate": "2025-04-01",
+    "leaveDate": "",
+    "birthday": "2000-10-20",
+    "isManager": false,
+    "gender": "男",
+    "employmentType": "部分工時",
+    "probationEndDate": "",
+    "emergencyContactName": "李世貴",
+    "emergencyContactPhone": "0966-053931",
+    "employmentHistory": [
+      {
+        "date": "2025-04-01",
+        "action": "到職",
+        "note": "開譜國際（部分工時部分工時，不計年資）",
+        "countsSeniority": false
+      }
+    ]
+  },
+  {
+    "id": "staff411061967",
+    "name": "洪瑞梅",
+    "group": "企劃組",
+    "company": "開闊",
+    "title": "顧展人員",
+    "phone": "0915-356959",
+    "email": "redmay831@gmail.com",
+    "status": "在職",
+    "joinDate": "2026-05-15",
+    "leaveDate": "",
+    "birthday": "1985-08-31",
+    "isManager": false,
+    "gender": "女",
+    "employmentType": "定期契約",
+    "probationEndDate": "",
+    "emergencyContactName": "林華筠",
+    "emergencyContactPhone": "0953-380057",
+    "employmentHistory": [
+      {
+        "date": "2026-05-15",
+        "action": "到職",
+        "note": "開闊策略（定期契約，顧展人員，月薪制）",
+        "countsSeniority": true
+      }
+    ]
+  },
+  {
+    "id": "staff411061979",
+    "name": "黃芷樺",
+    "group": "企劃組",
+    "company": "開譜",
+    "title": "",
+    "phone": "0903-318833",
+    "email": "haley.h@topcape.com.tw",
+    "status": "離職",
+    "joinDate": "2024-03-01",
+    "leaveDate": "2026-03-31",
+    "birthday": "1991-02-06",
+    "isManager": false,
+    "gender": "女",
+    "employmentType": "正職",
+    "probationEndDate": "",
+    "emergencyContactName": "郭宜慈",
+    "emergencyContactPhone": "0966-705015",
+    "employmentHistory": [
+      {
+        "date": "2015-02-26",
+        "action": "到職",
+        "note": "開譜國際（第一次在職）",
+        "countsSeniority": false
+      },
+      {
+        "date": "2015-06-29",
+        "action": "留職停薪",
+        "note": "留職停薪（不計年資）",
+        "countsSeniority": false
+      },
+      {
+        "date": "2015-12-31",
+        "action": "復職",
+        "note": "留職停薪結束，開譜國際",
+        "countsSeniority": false
+      },
+      {
+        "date": "2018-09-01",
+        "action": "留職停薪",
+        "note": "職業倦怠，返鄉找人生方向（不計年資）",
+        "countsSeniority": false
+      },
+      {
+        "date": "2019-03-01",
+        "action": "復職",
+        "note": "留職停薪結束，開譜國際",
+        "countsSeniority": false
+      },
+      {
+        "date": "2019-04-30",
+        "action": "退保",
+        "note": "留職停薪前短暫退保",
+        "countsSeniority": false
+      },
+      {
+        "date": "2019-05-01",
+        "action": "留職停薪",
+        "note": "考上研究所就讀碩士班（不計年資）",
+        "countsSeniority": false
+      },
+      {
+        "date": "2021-09-30",
+        "action": "復職",
+        "note": "留職停薪結束，開譜國際",
+        "countsSeniority": false
+      },
+      {
+        "date": "2022-02-08",
+        "action": "離職",
+        "note": "正式離職",
+        "countsSeniority": false
+      },
+      {
+        "date": "2024-03-01",
+        "action": "到職",
+        "note": "開譜國際（最近一次到職日）",
+        "countsSeniority": true
+      },
+      {
+        "date": "2025-01-01",
+        "action": "轉公司",
+        "note": "開譜 → 開闊策略",
+        "countsSeniority": true
+      },
+      {
+        "date": "2026-03-31",
+        "action": "離職",
+        "note": "",
+        "countsSeniority": false
+      }
+    ]
+  },
+  {
+    "id": "staff411061992",
+    "name": "周亞璇",
+    "group": "企劃組",
+    "company": "開譜",
+    "title": "",
+    "phone": "0903-066566",
+    "email": "lulu.c@topcape.com.tw",
+    "status": "離職",
+    "joinDate": "2022-01-01",
+    "leaveDate": "2022-08-02",
+    "birthday": "1994-12-12",
+    "isManager": false,
+    "gender": "女",
+    "employmentType": "正職",
+    "probationEndDate": "",
+    "emergencyContactName": "",
+    "emergencyContactPhone": "",
+    "employmentHistory": [
+      {
+        "date": "2016-07-04",
+        "action": "到職",
+        "note": "開譜國際（暑假實習，部分工時，不計年資）",
+        "countsSeniority": false
+      },
+      {
+        "date": "2016-09-06",
+        "action": "離職",
+        "note": "實習結束",
+        "countsSeniority": false
+      },
+      {
+        "date": "2022-01-01",
+        "action": "到職",
+        "note": "開譜國際（第二次在職）",
+        "countsSeniority": true
+      },
+      {
+        "date": "2022-08-02",
+        "action": "離職",
+        "note": "",
+        "countsSeniority": false
+      }
+    ]
+  },
+  {
+    "id": "staff411062004",
+    "name": "彭筱珼",
+    "group": "設計組",
+    "company": "開闊",
+    "title": "",
+    "phone": "0970-566642",
+    "email": "beryl.p@topcape.com.tw",
+    "status": "離職",
+    "joinDate": "2018-09-01",
+    "leaveDate": "2024-03-31",
+    "birthday": "1988-11-20",
+    "isManager": false,
+    "gender": "女",
+    "employmentType": "正職",
+    "probationEndDate": "",
+    "emergencyContactName": "",
+    "emergencyContactPhone": "",
+    "employmentHistory": [
+      {
+        "date": "2018-09-01",
+        "action": "到職",
+        "note": "開闊策略（部分工時部分工時，不計年資）",
+        "countsSeniority": false
+      },
+      {
+        "date": "2019-07-01",
+        "action": "外部兼職",
+        "note": "Rich（計年資，掛人事費）",
+        "countsSeniority": true
+      },
+      {
+        "date": "2019-09-01",
+        "action": "外部兼職",
+        "note": "愛鄉（計年資，掛人事費）",
+        "countsSeniority": true
+      },
+      {
+        "date": "2019-11-01",
+        "action": "育嬰留停",
+        "note": "第一段（不計年資）",
+        "countsSeniority": false
+      },
+      {
+        "date": "2020-02-04",
+        "action": "復職",
+        "note": "育嬰留停結束，開闊策略",
+        "countsSeniority": true
+      },
+      {
+        "date": "2020-10-01",
+        "action": "育嬰留停",
+        "note": "第二段（不計年資）",
+        "countsSeniority": false
+      },
+      {
+        "date": "2021-04-01",
+        "action": "復職",
+        "note": "育嬰留停結束，開闊策略",
+        "countsSeniority": true
+      },
+      {
+        "date": "2021-10-01",
+        "action": "育嬰留停",
+        "note": "第三段（不計年資）",
+        "countsSeniority": false
+      },
+      {
+        "date": "2022-09-01",
+        "action": "復職",
+        "note": "育嬰留停結束，轉至開譜國際",
+        "countsSeniority": true
+      },
+      {
+        "date": "2023-02-28",
+        "action": "轉公司",
+        "note": "開譜 → 開闊策略",
+        "countsSeniority": true
+      },
+      {
+        "date": "2023-11-20",
+        "action": "更名",
+        "note": "彭慧玉 → 彭筱珼",
+        "countsSeniority": null
+      },
+      {
+        "date": "2024-03-31",
+        "action": "離職",
+        "note": "確定年資3年11個月（含部分工時、愛鄉）",
+        "countsSeniority": false
+      }
+    ]
+  },
+  {
+    "id": "staff411062017",
+    "name": "陳郁潔",
+    "group": "企劃組",
+    "company": "開譜",
+    "title": "",
+    "phone": "0910-477026",
+    "email": "jamie.c@topcape.com.tw",
+    "status": "離職",
+    "joinDate": "2021-10-04",
+    "leaveDate": "2023-05-05",
+    "birthday": "1999-05-25",
+    "isManager": false,
+    "gender": "女",
+    "employmentType": "正職",
+    "probationEndDate": "",
+    "emergencyContactName": "",
+    "emergencyContactPhone": "",
+    "employmentHistory": [
+      {
+        "date": "2021-10-04",
+        "action": "到職",
+        "note": "開譜國際",
+        "countsSeniority": true
+      },
+      {
+        "date": "2023-05-05",
+        "action": "離職",
+        "note": "",
+        "countsSeniority": false
+      }
+    ]
+  },
+  {
+    "id": "staff411062029",
+    "name": "邱健鑫",
+    "group": "企劃組",
+    "company": "開闊",
+    "title": "",
+    "phone": "0963-370869",
+    "email": "jason.c@topcape.com.tw",
+    "status": "離職",
+    "joinDate": "2021-11-01",
+    "leaveDate": "2023-10-31",
+    "birthday": "1990-11-17",
+    "isManager": false,
+    "gender": "男",
+    "employmentType": "正職",
+    "probationEndDate": "",
+    "emergencyContactName": "",
+    "emergencyContactPhone": "",
+    "employmentHistory": [
+      {
+        "date": "2021-11-01",
+        "action": "到職",
+        "note": "開闊策略",
+        "countsSeniority": true
+      },
+      {
+        "date": "2023-02-28",
+        "action": "轉公司",
+        "note": "換投保單位（連續在職）",
+        "countsSeniority": true
+      },
+      {
+        "date": "2023-10-31",
+        "action": "離職",
+        "note": "",
+        "countsSeniority": false
+      }
+    ]
+  },
+  {
+    "id": "staff411062042",
+    "name": "吳庭瑄",
+    "group": "企劃組",
+    "company": "開譜",
+    "title": "",
+    "phone": "0976-237288",
+    "email": "xianxian.w@topcape.com.tw",
+    "status": "離職",
+    "joinDate": "2021-11-10",
+    "leaveDate": "2023-05-15",
+    "birthday": "1999-08-16",
+    "isManager": false,
+    "gender": "女",
+    "employmentType": "正職",
+    "probationEndDate": "",
+    "emergencyContactName": "",
+    "emergencyContactPhone": "",
+    "employmentHistory": [
+      {
+        "date": "2021-11-10",
+        "action": "到職",
+        "note": "開譜國際",
+        "countsSeniority": true
+      },
+      {
+        "date": "2023-05-15",
+        "action": "離職",
+        "note": "",
+        "countsSeniority": false
+      }
+    ]
+  },
+  {
+    "id": "staff411062055",
+    "name": "林治緯",
+    "group": "企劃組",
+    "company": "開闊",
+    "title": "",
+    "phone": "0937-612130",
+    "email": "chihwei.l@topocape.com.tw",
+    "status": "離職",
+    "joinDate": "2024-03-01",
+    "leaveDate": "2025-06-30",
+    "birthday": "1973-10-29",
+    "isManager": false,
+    "gender": "男",
+    "employmentType": "正職",
+    "probationEndDate": "",
+    "emergencyContactName": "",
+    "emergencyContactPhone": "",
+    "employmentHistory": [
+      {
+        "date": "2024-03-01",
+        "action": "到職",
+        "note": "開闊策略",
+        "countsSeniority": true
+      },
+      {
+        "date": "2025-06-30",
+        "action": "離職",
+        "note": "",
+        "countsSeniority": false
+      }
+    ]
+  },
+  {
+    "id": "staff411062067",
+    "name": "潘睿豐",
+    "group": "設計組",
+    "company": "開譜",
+    "title": "",
+    "phone": "0907-320372",
+    "email": "ray.p@topcape.com.tw",
+    "status": "離職",
+    "joinDate": "2024-09-01",
+    "leaveDate": "2025-11-30",
+    "birthday": "1999-04-09",
+    "isManager": false,
+    "gender": "男",
+    "employmentType": "正職",
+    "probationEndDate": "",
+    "emergencyContactName": "",
+    "emergencyContactPhone": "",
+    "employmentHistory": [
+      {
+        "date": "2024-09-01",
+        "action": "到職",
+        "note": "開譜國際",
+        "countsSeniority": true
+      },
+      {
+        "date": "2025-11-30",
+        "action": "離職",
+        "note": "",
+        "countsSeniority": false
+      }
+    ]
+  },
+  {
+    "id": "staff411062079",
+    "name": "施素秋",
+    "group": "管理組",
+    "company": "開闊",
+    "title": "",
+    "phone": "0903-028751",
+    "email": "",
+    "status": "離職",
+    "joinDate": "2026-01-01",
+    "leaveDate": "2026-01-03",
+    "birthday": "1965-01-29",
+    "isManager": false,
+    "gender": "女",
+    "employmentType": "正職",
+    "probationEndDate": "",
+    "emergencyContactName": "",
+    "emergencyContactPhone": "",
+    "employmentHistory": [
+      {
+        "date": "2026-01-01",
+        "action": "到職",
+        "note": "開闊策略",
+        "countsSeniority": true
+      },
+      {
+        "date": "2026-01-03",
+        "action": "離職",
+        "note": "在職3天",
+        "countsSeniority": false
+      }
+    ]
+  },
+  {
+    "id": "staff411062090",
+    "name": "林書璇",
+    "group": "基地組",
+    "company": "開譜",
+    "title": "",
+    "phone": "0911-001735",
+    "email": "",
+    "status": "離職",
+    "joinDate": "2023-09-15",
+    "leaveDate": "2024-08-20",
+    "birthday": "1999-09-06",
+    "isManager": false,
+    "gender": "女",
+    "employmentType": "兼職",
+    "probationEndDate": "",
+    "emergencyContactName": "",
+    "emergencyContactPhone": "",
+    "employmentHistory": [
+      {
+        "date": "2023-09-15",
+        "action": "到職",
+        "note": "開譜國際",
+        "countsSeniority": true
+      },
+      {
+        "date": "2024-08-20",
+        "action": "離職",
+        "note": "",
+        "countsSeniority": false
+      }
+    ]
+  },
+  {
+    "id": "staff411062100",
+    "name": "郭悠湄",
+    "group": "基地組",
+    "company": "開譜",
+    "title": "",
+    "phone": "0981-280105",
+    "email": "",
+    "status": "離職",
+    "joinDate": "2023-09-18",
+    "leaveDate": "2024-01-31",
+    "birthday": "1986-01-05",
+    "isManager": false,
+    "gender": "女",
+    "employmentType": "兼職",
+    "probationEndDate": "",
+    "emergencyContactName": "",
+    "emergencyContactPhone": "",
+    "employmentHistory": [
+      {
+        "date": "2023-09-18",
+        "action": "到職",
+        "note": "開譜國際",
+        "countsSeniority": true
+      },
+      {
+        "date": "2024-01-31",
+        "action": "離職",
+        "note": "",
+        "countsSeniority": false
+      }
+    ]
+  },
+  {
+    "id": "staff411062112",
+    "name": "吳沛臻",
+    "group": "基地組",
+    "company": "開譜",
+    "title": "",
+    "phone": "0916-155130",
+    "email": "",
+    "status": "離職",
+    "joinDate": "2023-09-20",
+    "leaveDate": "2025-02-28",
+    "birthday": "1995-05-07",
+    "isManager": false,
+    "gender": "女",
+    "employmentType": "兼職",
+    "probationEndDate": "",
+    "emergencyContactName": "",
+    "emergencyContactPhone": "",
+    "employmentHistory": [
+      {
+        "date": "2023-09-20",
+        "action": "到職",
+        "note": "開譜國際",
+        "countsSeniority": true
+      },
+      {
+        "date": "2025-02-28",
+        "action": "離職",
+        "note": "",
+        "countsSeniority": false
+      }
+    ]
+  },
+  {
+    "id": "staff411062123",
+    "name": "黃彥澄",
+    "group": "基地組",
+    "company": "開闊",
+    "title": "",
+    "phone": "0916-478672",
+    "email": "",
+    "status": "離職",
+    "joinDate": "2023-09-21",
+    "leaveDate": "2023-09-22",
+    "birthday": "2000-06-28",
+    "isManager": false,
+    "gender": "男",
+    "employmentType": "兼職",
+    "probationEndDate": "",
+    "emergencyContactName": "",
+    "emergencyContactPhone": "",
+    "employmentHistory": [
+      {
+        "date": "2023-09-21",
+        "action": "到職",
+        "note": "開闊策略",
+        "countsSeniority": true
+      },
+      {
+        "date": "2023-09-22",
+        "action": "離職",
+        "note": "在職僅1天",
+        "countsSeniority": false
+      }
+    ]
+  },
+  {
+    "id": "staff411062136",
+    "name": "楊文甄",
+    "group": "基地組",
+    "company": "開闊",
+    "title": "",
+    "phone": "",
+    "email": "",
+    "status": "離職",
+    "joinDate": "2023-10-08",
+    "leaveDate": "2023-10-29",
+    "birthday": "",
+    "isManager": false,
+    "gender": "女",
+    "employmentType": "兼職",
+    "probationEndDate": "",
+    "emergencyContactName": "",
+    "emergencyContactPhone": "",
+    "employmentHistory": [
+      {
+        "date": "2023-10-08",
+        "action": "到職",
+        "note": "開闊策略",
+        "countsSeniority": true
+      },
+      {
+        "date": "2023-10-29",
+        "action": "離職",
+        "note": "",
+        "countsSeniority": false
+      }
+    ]
+  },
+  {
+    "id": "staff411062147",
+    "name": "羅川峻",
+    "group": "基地組",
+    "company": "開闊",
+    "title": "",
+    "phone": "0966-857579",
+    "email": "chuan.l@topcape.com.tw",
+    "status": "離職",
+    "joinDate": "2023-10-31",
+    "leaveDate": "2024-02-29",
+    "birthday": "2001-05-27",
+    "isManager": false,
+    "gender": "男",
+    "employmentType": "兼職",
+    "probationEndDate": "",
+    "emergencyContactName": "",
+    "emergencyContactPhone": "",
+    "employmentHistory": [
+      {
+        "date": "2023-10-31",
+        "action": "到職",
+        "note": "開闊策略",
+        "countsSeniority": true
+      },
+      {
+        "date": "2024-01-01",
+        "action": "調薪",
+        "note": "部分工時調為27,470元",
+        "countsSeniority": null
+      },
+      {
+        "date": "2024-02-29",
+        "action": "離職",
+        "note": "",
+        "countsSeniority": false
+      }
+    ]
+  },
+  {
+    "id": "staff411062159",
+    "name": "辛怡柔",
+    "group": "基地組",
+    "company": "開闊",
+    "title": "",
+    "phone": "0918-989469",
+    "email": "",
+    "status": "離職",
+    "joinDate": "2024-04-27",
+    "leaveDate": "2024-06-22",
+    "birthday": "1997-10-18",
+    "isManager": false,
+    "gender": "女",
+    "employmentType": "兼職",
+    "probationEndDate": "",
+    "emergencyContactName": "",
+    "emergencyContactPhone": "",
+    "employmentHistory": [
+      {
+        "date": "2024-04-27",
+        "action": "到職",
+        "note": "開闊策略",
+        "countsSeniority": true
+      },
+      {
+        "date": "2024-06-22",
+        "action": "離職",
+        "note": "",
+        "countsSeniority": false
+      }
+    ]
+  },
+  {
+    "id": "staff411062172",
+    "name": "黃毘智",
+    "group": "基地組",
+    "company": "開闊",
+    "title": "",
+    "phone": "",
+    "email": "",
+    "status": "離職",
+    "joinDate": "2024-05-02",
+    "leaveDate": "2024-05-29",
+    "birthday": "2003-06-16",
+    "isManager": false,
+    "gender": "男",
+    "employmentType": "兼職",
+    "probationEndDate": "",
+    "emergencyContactName": "",
+    "emergencyContactPhone": "",
+    "employmentHistory": [
+      {
+        "date": "2024-05-02",
+        "action": "到職",
+        "note": "開闊策略",
+        "countsSeniority": true
+      },
+      {
+        "date": "2024-05-29",
+        "action": "離職",
+        "note": "",
+        "countsSeniority": false
+      }
+    ]
+  },
+  {
+    "id": "staff411062185",
+    "name": "吳鈺芬",
+    "group": "基地組",
+    "company": "開譜",
+    "title": "",
+    "phone": "0983-393212",
+    "email": "",
+    "status": "離職",
+    "joinDate": "2024-10-01",
+    "leaveDate": "2025-01-17",
+    "birthday": "2002-09-28",
+    "isManager": false,
+    "gender": "女",
+    "employmentType": "兼職",
+    "probationEndDate": "",
+    "emergencyContactName": "",
+    "emergencyContactPhone": "",
+    "employmentHistory": [
+      {
+        "date": "2024-10-01",
+        "action": "到職",
+        "note": "開譜國際",
+        "countsSeniority": true
+      },
+      {
+        "date": "2025-01-17",
+        "action": "離職",
+        "note": "",
+        "countsSeniority": false
+      }
+    ]
+  },
+  {
+    "id": "staff411062196",
+    "name": "徐郭麗英",
+    "group": "基地組",
+    "company": "開闊",
+    "title": "",
+    "phone": "0921-268225",
+    "email": "",
+    "status": "離職",
+    "joinDate": "2025-05-16",
+    "leaveDate": "2025-06-25",
+    "birthday": "1972-08-10",
+    "isManager": false,
+    "gender": "女",
+    "employmentType": "兼職",
+    "probationEndDate": "",
+    "emergencyContactName": "",
+    "emergencyContactPhone": "",
+    "employmentHistory": [
+      {
+        "date": "2025-05-16",
+        "action": "到職",
+        "note": "開闊策略",
+        "countsSeniority": true
+      },
+      {
+        "date": "2025-06-25",
+        "action": "離職",
+        "note": "",
+        "countsSeniority": false
+      }
+    ]
+  }
 ]

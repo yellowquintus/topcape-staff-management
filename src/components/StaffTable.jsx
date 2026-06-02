@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import StatusBadge from './StatusBadge';
 
-export default function StaffTable({ staffList, onEdit, onResign, onDelete }) {
+export default function StaffTable({ staffList, onView, onEdit, onResign, onDelete }) {
   const [openMenu, setOpenMenu] = useState(null);
 
   if (staffList.length === 0) {
@@ -23,9 +23,9 @@ export default function StaffTable({ staffList, onEdit, onResign, onDelete }) {
           {showHeader && (
             <div className="text-xs font-semibold text-gray-400 tracking-widest mb-3 uppercase">{g}</div>
           )}
-          <div className="grid gap-3" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))' }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {staffList.filter(s => s.group === g).map(s => (
-              <StaffCard key={s.id} s={s} openMenu={openMenu} setOpenMenu={setOpenMenu} onEdit={onEdit} onResign={onResign} onDelete={onDelete} />
+              <StaffCard key={s.id} s={s} openMenu={openMenu} setOpenMenu={setOpenMenu} onView={onView} onEdit={onEdit} onResign={onResign} onDelete={onDelete} />
             ))}
           </div>
         </div>
@@ -33,7 +33,7 @@ export default function StaffTable({ staffList, onEdit, onResign, onDelete }) {
       {ungrouped.length > 0 && (
         <div className="grid gap-3" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))' }}>
           {ungrouped.map(s => (
-            <StaffCard key={s.id} s={s} openMenu={openMenu} setOpenMenu={setOpenMenu} onEdit={onEdit} onResign={onResign} onDelete={onDelete} />
+            <StaffCard key={s.id} s={s} openMenu={openMenu} setOpenMenu={setOpenMenu} onView={onView} onEdit={onEdit} onResign={onResign} onDelete={onDelete} />
           ))}
         </div>
       )}
@@ -41,12 +41,14 @@ export default function StaffTable({ staffList, onEdit, onResign, onDelete }) {
   );
 }
 
-function StaffCard({ s, openMenu, setOpenMenu, onEdit, onResign, onDelete }) {
+function StaffCard({ s, openMenu, setOpenMenu, onView, onEdit, onResign, onDelete }) {
   const contact = [s.phone, s.email].filter(Boolean).join(' ‧ ');
 
   return (
-    <div className={`bg-white border-[1.5px] rounded-xl p-4 flex items-center gap-3 transition-colors
-      ${s.status === '離職' ? 'opacity-50 border-gray-100' : 'border-gray-200 hover:border-[#c4a0f5]'}`}>
+    <div
+      onClick={() => onView(s)}
+      className="bg-white border-[1.5px] border-gray-200 rounded-xl p-4 flex items-center gap-3 transition-colors cursor-pointer hover:border-[#c4a0f5]"
+    >
 
       {/* Avatar */}
       <div
@@ -69,10 +71,10 @@ function StaffCard({ s, openMenu, setOpenMenu, onEdit, onResign, onDelete }) {
       </div>
 
       {/* ••• menu */}
-      <div className="relative flex-shrink-0">
+      <div className="relative flex-shrink-0" onClick={e => e.stopPropagation()}>
         <button
           onClick={() => setOpenMenu(openMenu === s.id ? null : s.id)}
-          className="text-gray-300 hover:text-gray-500 w-7 h-7 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors text-base leading-none"
+          className="text-gray-300 hover:text-gray-500 w-7 h-7 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors text-base leading-none cursor-pointer"
         >
           •••
         </button>
@@ -82,21 +84,21 @@ function StaffCard({ s, openMenu, setOpenMenu, onEdit, onResign, onDelete }) {
             <div className="absolute right-0 top-8 bg-white border border-gray-100 rounded-lg shadow-lg z-20 w-32 overflow-hidden">
               <button
                 onClick={() => { onEdit(s); setOpenMenu(null); }}
-                className="w-full text-left px-3 py-2 text-sm hover:bg-gray-50 transition-colors"
+                className="w-full text-left px-3 py-2 text-sm hover:bg-gray-50 transition-colors cursor-pointer"
               >
                 ✏️ 編輯
               </button>
               {s.status === '在職' && (
                 <button
                   onClick={() => { onResign(s); setOpenMenu(null); }}
-                  className="w-full text-left px-3 py-2 text-sm hover:bg-orange-50 transition-colors text-orange-600"
+                  className="w-full text-left px-3 py-2 text-sm hover:bg-orange-50 transition-colors text-orange-600 cursor-pointer"
                 >
                   🚪 標記離職
                 </button>
               )}
               <button
                 onClick={() => { onDelete(s); setOpenMenu(null); }}
-                className="w-full text-left px-3 py-2 text-sm hover:bg-red-50 transition-colors text-red-600"
+                className="w-full text-left px-3 py-2 text-sm hover:bg-red-50 transition-colors text-red-600 cursor-pointer"
               >
                 🗑 刪除
               </button>

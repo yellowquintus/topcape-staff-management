@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
+import { AnimatePresence } from 'motion/react';
 import StaffTable from './components/StaffTable';
 import StaffModal from './components/StaffModal';
+import StaffDrawer from './components/StaffDrawer';
 import { fetchStaff, createStaff, updateStaff, deleteStaff } from './api';
 
 const GROUPS = ['全部', '管理組', '企劃組', '設計組', '基地組'];
@@ -10,7 +12,8 @@ export default function App() {
   const [loading, setLoading]         = useState(true);
   const [search, setSearch]           = useState('');
   const [activeGroup, setActiveGroup] = useState('全部');
-  const [showResigned, setShowResigned] = useState(false);
+  const [activeTab, setActiveTab]     = useState('在職');
+  const [drawerStaff, setDrawerStaff] = useState(null);
   const [modal, setModal]             = useState(null);
   const [toast, setToast]             = useState(null);
 
@@ -33,13 +36,14 @@ export default function App() {
   useEffect(() => { load(); }, [load]);
 
   const filtered = staffList.filter(s => {
-    const matchGroup   = activeGroup === '全部' || s.group === activeGroup;
-    const matchResigned = showResigned || s.status === '在職';
-    const matchSearch  = !search || s.name.includes(search) || s.email.includes(search);
-    return matchGroup && matchResigned && matchSearch;
+    const matchGroup  = activeGroup === '全部' || s.group === activeGroup;
+    const matchTab    = s.status === activeTab;
+    const matchSearch = !search || s.name.includes(search) || (s.email || '').includes(search);
+    return matchGroup && matchTab && matchSearch;
   });
 
-  const activeCount = staffList.filter(s => s.status === '在職').length;
+  const activeCount   = staffList.filter(s => s.status === '在職').length;
+  const resignedCount = staffList.filter(s => s.status === '離職').length;
 
   const handleSave = async (data) => {
     try {
@@ -80,27 +84,55 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[#f5f5f7] flex flex-col">
       {/* Header */}
-      <header className="bg-gradient-to-r from-[#5c00a8] to-[#7a00df] shadow-md sticky top-0 z-30">
-        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
-          <a href="/tools/" className="text-white/60 hover:text-white text-sm transition-colors">← 工具首頁</a>
-          <span className="text-white/30">|</span>
-          <span className="font-bold text-white text-lg" style={{ fontFamily: 'Poppins, sans-serif' }}>同仁資料管理</span>
-          <span className="text-xs text-white/80 border border-white/30 rounded-full px-2 py-0.5">Staff</span>
-          <span className="text-white/60 text-sm ml-auto">{activeCount} 位在職</span>
+      <header className="bg-gradient-to-r from-[#5c00a8] to-[#7a00df] shadow-md sticky top-0 z-50">
+        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <h1 className="font-bold text-white text-lg" style={{ fontFamily: 'Poppins, sans-serif' }}>同仁資料管理</h1>
+            <span className="text-xs text-white/80 border border-white/30 rounded-full px-2 py-0.5">Staff</span>
+            <span className="text-white/60 text-sm">{activeCount} 位在職</span>
+            <button
+              onClick={() => setModal({ mode: 'add' })}
+              className="text-white/80 hover:text-white border border-white/30 hover:bg-white/15 px-3 py-1 rounded-full text-xs font-medium transition cursor-pointer"
+            >
+              ＋ 新增同仁
+            </button>
+          </div>
+          <a href="/tools/"
+            className="px-4 py-1.5 rounded-full border border-white/30 text-sm font-medium transition text-white/80 hover:bg-white/15 no-underline flex items-center"
+          >
+            ← 工具首頁
+          </a>
         </div>
       </header>
 
       <main className="max-w-6xl mx-auto px-4 py-6">
         {/* Controls */}
         <div className="flex flex-wrap items-center gap-3 mb-4">
+          {/* 在職 / 離職 Tab */}
+          <div className="flex rounded-lg border border-gray-200 bg-white overflow-hidden">
+            {[
+              { label: `在職 ${activeCount}`, val: '在職' },
+              { label: `離職 ${resignedCount}`, val: '離職' },
+            ].map(({ label, val }) => (
+              <button
+                key={val}
+                onClick={() => setActiveTab(val)}
+                className={`px-4 py-2 text-sm font-medium transition-colors cursor-pointer
+                  ${activeTab === val ? 'bg-[#7a00df] text-white' : 'text-gray-600 hover:bg-gray-50'}`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+
           <input
             type="text"
             placeholder="搜尋姓名或 Email…"
             value={search}
             onChange={e => setSearch(e.target.value)}
-            className="border border-gray-200 rounded-lg px-3 py-2 text-sm w-56 focus:outline-none focus:ring-2 focus:ring-purple-300 bg-white"
+            className="border border-gray-200 rounded-lg px-3 py-2 text-sm w-52 focus:outline-none focus:ring-2 focus:ring-purple-300 bg-white"
           />
           <div className="flex gap-1 flex-wrap">
             {GROUPS.map(g => (
@@ -116,22 +148,6 @@ export default function App() {
               </button>
             ))}
           </div>
-          <label className="flex items-center gap-1.5 text-sm text-gray-500 cursor-pointer select-none ml-1">
-            <input
-              type="checkbox"
-              checked={showResigned}
-              onChange={e => setShowResigned(e.target.checked)}
-              className="rounded"
-              style={{ accentColor: '#7a00df' }}
-            />
-            顯示離職
-          </label>
-          <button
-            onClick={() => setModal({ mode: 'add' })}
-            className="ml-auto bg-[#7a00df] hover:bg-[#5c00a8] text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-1.5 transition-colors cursor-pointer"
-          >
-            ＋ 新增同仁
-          </button>
         </div>
 
         {/* Table */}
@@ -140,6 +156,7 @@ export default function App() {
         ) : (
           <StaffTable
             staffList={filtered}
+            onView={staff => setDrawerStaff(staff)}
             onEdit={staff => setModal({ mode: 'edit', staff })}
             onResign={handleResign}
             onDelete={handleDelete}
@@ -164,13 +181,34 @@ export default function App() {
         />
       )}
 
+      {/* Drawer */}
+      <AnimatePresence>
+        {drawerStaff && (
+          <StaffDrawer
+            key={drawerStaff.id}
+            staff={drawerStaff}
+            onClose={() => setDrawerStaff(null)}
+            onEdit={staff => setModal({ mode: 'edit', staff })}
+            onResign={handleResign}
+            onDelete={handleDelete}
+            onRefresh={load}
+          />
+        )}
+      </AnimatePresence>
+
       {/* Toast */}
       {toast && (
-        <div className={`fixed bottom-6 right-6 px-4 py-3 rounded-lg shadow-lg text-sm font-medium z-50
-          ${toast.type === 'error' ? 'bg-red-500 text-white' : 'bg-green-600 text-white'}`}>
+        <div className={`fixed bottom-6 left-1/2 -translate-x-1/2 px-5 py-2.5 rounded-full shadow-lg text-sm font-medium z-50 whitespace-nowrap
+          ${toast.type === 'error' ? 'bg-red-500 text-white' : 'bg-[#111] text-white'}`}>
           {toast.msg}
         </div>
       )}
+
+      <footer className="text-center py-5 text-xs text-gray-400 mt-auto border-t border-gray-100">
+        © {new Date().getFullYear()}&nbsp;
+        <a href="https://www.topcape.com.tw/" className="text-[#7a00df] no-underline">開譜國際 TopCape</a>
+        &nbsp;・ 僅供內部使用
+      </footer>
     </div>
   );
 }
