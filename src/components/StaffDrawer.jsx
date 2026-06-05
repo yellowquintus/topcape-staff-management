@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import StatusBadge from './StatusBadge';
-import { addHistoryEntry } from '../api';
+import { addHistoryEntry, deleteHistoryEntry, reinstateStaff } from '../api';
 
 function calcSeniority(staff) {
   const hist = [...(staff.employmentHistory || [])].sort((a, b) => a.date.localeCompare(b.date));
@@ -69,6 +69,9 @@ export default function StaffDrawer({ staff, onClose, onEdit, onResign, onDelete
   const [addingHistory, setAddingHistory] = useState(false);
   const [histForm, setHistForm] = useState({ date: '', action: '到職', note: '' });
   const [saving, setSaving] = useState(false);
+  const [reinstateModal, setReinstateModal] = useState(false);
+  const [reinstateDate, setReinstateDate] = useState(new Date().toISOString().slice(0, 10));
+  const [reinstateNote, setReinstateNote] = useState('');
 
   const history = [...(staff.employmentHistory || [])].sort((a, b) => a.date.localeCompare(b.date));
   const seniority = calcSeniority(staff);
@@ -82,6 +85,32 @@ export default function StaffDrawer({ staff, onClose, onEdit, onResign, onDelete
       setAddingHistory(false);
       setHistForm({ date: '', action: '到職', note: '' });
       onRefresh();
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const handleDeleteHistory = async (entry) => {
+    if (!confirm(`確定刪除「${entry.action}」（${entry.date}）這筆記錄？`)) return;
+    try {
+      await deleteHistoryEntry(staff.id, entry);
+      onRefresh();
+    } catch (e) {
+      alert('刪除失敗：' + e.message);
+    }
+  };
+
+  const handleReinstate = async () => {
+    if (!reinstateDate) return;
+    setSaving(true);
+    try {
+      await reinstateStaff(staff.id, reinstateDate, reinstateNote);
+      setReinstateModal(false);
+      setReinstateNote('');
+      onRefresh();
+      onClose();
+    } catch (e) {
+      alert('復職失敗：' + e.message);
     } finally {
       setSaving(false);
     }
@@ -176,12 +205,19 @@ export default function StaffDrawer({ staff, onClose, onEdit, onResign, onDelete
                 {history.map((h, i) => {
                   const dotCls = ACTION_COLOR[h.action] || 'border-gray-400 bg-gray-400';
                   return (
-                    <div key={i} className="relative flex gap-3 pb-4 last:pb-0">
+                    <div key={i} className="relative flex gap-3 pb-4 last:pb-0 group/hist">
                       <div className={`absolute -left-1.5 top-1.5 w-3 h-3 rounded-full border-2 bg-white ${dotCls}`} />
-                      <div className="ml-2">
+                      <div className="ml-2 flex-1">
                         <div className="flex items-center gap-2 flex-wrap">
                           <span className="text-sm font-medium text-gray-800">{h.action}</span>
                           {h.note && <span className="text-xs text-gray-500">{h.note}</span>}
+                          <button
+                            onClick={() => handleDeleteHistory(h)}
+                            className="ml-auto opacity-0 group-hover/hist:opacity-100 text-red-400 hover:text-red-600 text-xs px-1.5 py-0.5 rounded hover:bg-red-50 transition-all cursor-pointer"
+                            title="刪除這筆記錄"
+                          >
+                            刪除
+                          </button>
                         </div>
                         <div className="text-xs text-gray-400 mt-0.5">{h.date}</div>
                       </div>
@@ -255,6 +291,14 @@ export default function StaffDrawer({ staff, onClose, onEdit, onResign, onDelete
               標記離職
             </button>
           )}
+          {staff.status === '離職' && (
+            <button
+              onClick={() => setReinstateModal(true)}
+              className="px-4 py-2 rounded-lg text-sm border border-green-200 text-green-700 hover:bg-green-50 transition-colors cursor-pointer"
+            >
+              標記復職
+            </button>
+          )}
           <button
             onClick={() => { onDelete(staff); onClose(); }}
             className="px-4 py-2 rounded-lg text-sm border border-red-200 text-red-600 hover:bg-red-50 transition-colors cursor-pointer"
@@ -263,6 +307,46 @@ export default function StaffDrawer({ staff, onClose, onEdit, onResign, onDelete
           </button>
         </div>
       </motion.div>
+
+      {/* 復職 Modal */}
+      {reinstateModal && (
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-[60]" onClick={() => setReinstateModal(false)}>
+          <div className="bg-white rounded-2xl p-6 w-full max-w-sm mx-4 shadow-xl" onClick={e => e.stopPropagation()}>
+            <h3 className="font-semibold text-gray-900 mb-4">標記復職 — {staff.name}</h3>
+            <div className="space-y-3">
+              <div>
+                <label className="text-xs text-gray-500 mb-1 block">復職日期</label>
+                <input
+                  type="date"
+                  value={reinstateDate}
+                  onChange={e => setReinstateDate(e.target.value)}
+                  className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-green-300 outline-none"
+                />
+              </div>
+              <div>
+                <label className="text-xs text-gray-500 mb-1 block">備註（可留空）</label>
+                <input
+                  type="text"
+                  value={reinstateNote}
+                  onChange={e => setReinstateNote(e.target.value)}
+                  placeholder="例：重新到職"
+                  className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-green-300 outline-none"
+                />
+              </div>
+            </div>
+            <div className="flex justify-end gap-3 mt-5">
+              <button onClick={() => setReinstateModal(false)} className="px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-lg">取消</button>
+              <button
+                onClick={handleReinstate}
+                disabled={saving}
+                className="px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 disabled:opacity-50 transition-colors"
+              >
+                {saving ? '處理中…' : '確認復職'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

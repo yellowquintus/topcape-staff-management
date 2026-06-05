@@ -46,3 +46,23 @@ export async function addHistoryEntry(id, entry) {
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   return res.json();
 }
+
+export async function deleteHistoryEntry(id, entry) {
+  const res = await fetch(`${BASE}?action=delete_history`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ id, entry }),
+  });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return res.json();
+}
+
+export async function reinstateStaff(id, date, note = '') {
+  const res = await fetch(`${BASE}?action=reinstate`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ id, date, note }),
+  });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return res.json();
+}

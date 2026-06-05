@@ -86,24 +86,32 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#f5f5f7] flex flex-col">
       {/* Header */}
-      <header className="bg-gradient-to-r from-[#5c00a8] to-[#7a00df] shadow-md sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <h1 className="font-bold text-white text-lg" style={{ fontFamily: 'Poppins, sans-serif' }}>同仁資料管理</h1>
-            <span className="text-xs text-white/80 border border-white/30 rounded-full px-2 py-0.5">Staff</span>
-            <span className="text-white/60 text-sm">{activeCount} 位在職</span>
+      <header className="bg-white border-b-[3px] border-[#40CE94] sticky top-0 z-50">
+        <div className="max-w-6xl mx-auto px-6 py-[14px] flex items-center gap-3">
+          <a href="/tools/" className="no-underline flex-shrink-0">
+            <img
+              src="https://www.topcape.com.tw/wp-content/uploads/2025/05/topcape_logo_index2.svg"
+              alt="開譜國際 TopCape"
+              className="h-7 block"
+            />
+          </a>
+          <div className="w-px h-[22px] bg-[#ddd] hidden sm:block" />
+          <span className="hidden sm:block text-[11px] font-semibold tracking-[0.06em] uppercase flex-shrink-0" style={{ fontFamily: 'Poppins, sans-serif', color: '#7a00df' }}>
+            組織管理
+          </span>
+          <div className="w-px h-[22px] bg-[#ddd] hidden lg:block" />
+          <span className="hidden lg:block text-[15px] font-bold text-[#111] flex-shrink-0" style={{ fontFamily: 'Poppins, sans-serif' }}>
+            同仁資料管理
+          </span>
+          <div className="ml-auto flex items-center gap-2">
+            <span className="text-sm text-[#aaa]">{activeCount} 位在職</span>
             <button
               onClick={() => setModal({ mode: 'add' })}
-              className="text-white/80 hover:text-white border border-white/30 hover:bg-white/15 px-3 py-1 rounded-full text-xs font-medium transition cursor-pointer"
+              className="border border-[#ebebeb] text-[#555] hover:border-[#ccc] px-3 py-1.5 rounded-full text-xs font-medium transition cursor-pointer"
             >
               ＋ 新增同仁
             </button>
           </div>
-          <a href="/tools/"
-            className="px-4 py-1.5 rounded-full border border-white/30 text-sm font-medium transition text-white/80 hover:bg-white/15 no-underline flex items-center"
-          >
-            ← 工具首頁
-          </a>
         </div>
       </header>
 
@@ -120,7 +128,7 @@ export default function App() {
                 key={val}
                 onClick={() => setActiveTab(val)}
                 className={`px-4 py-2 text-sm font-medium transition-colors cursor-pointer
-                  ${activeTab === val ? 'bg-[#7a00df] text-white' : 'text-gray-600 hover:bg-gray-50'}`}
+                  ${activeTab === val ? 'bg-[#40CE94] text-white' : 'text-gray-600 hover:bg-gray-50'}`}
               >
                 {label}
               </button>
@@ -132,7 +140,7 @@ export default function App() {
             placeholder="搜尋姓名或 Email…"
             value={search}
             onChange={e => setSearch(e.target.value)}
-            className="border border-gray-200 rounded-lg px-3 py-2 text-sm w-52 focus:outline-none focus:ring-2 focus:ring-purple-300 bg-white"
+            className="border border-gray-200 rounded-lg px-3 py-2 text-sm w-52 focus:outline-none focus:ring-2 focus:ring-[#c8f0e0] bg-white"
           />
           <div className="flex gap-1 flex-wrap">
             {GROUPS.map(g => (
@@ -141,7 +149,7 @@ export default function App() {
                 onClick={() => setActiveGroup(g)}
                 className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors cursor-pointer
                   ${activeGroup === g
-                    ? 'bg-[#7a00df] text-white'
+                    ? 'bg-[#40CE94] text-white'
                     : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50'}`}
               >
                 {g}
@@ -206,7 +214,7 @@ export default function App() {
 
       <footer className="text-center py-5 text-xs text-gray-400 mt-auto border-t border-gray-100">
         © {new Date().getFullYear()}&nbsp;
-        <a href="https://www.topcape.com.tw/" className="text-[#7a00df] no-underline">開譜國際 TopCape</a>
+        <a href="https://www.topcape.com.tw/" className="text-[#40CE94] no-underline">開譜國際 TopCape</a>
         &nbsp;・ 僅供內部使用
       </footer>
     </div>

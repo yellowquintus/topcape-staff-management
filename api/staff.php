@@ -1,6 +1,14 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/tools/lib/auth.php';
+require_login(); // list 只需登入；寫入操作在下方另行檢查
+
+$origin  = $_SERVER['HTTP_ORIGIN'] ?? '';
+$allowed = ['https://topcape.com.tw', 'http://localhost:5173'];
+if (in_array($origin, $allowed)) {
+    header('Access-Control-Allow-Origin: ' . $origin);
+    header('Access-Control-Allow-Credentials: true');
+}
 header('Content-Type: application/json; charset=utf-8');
-header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') { http_response_code(204); exit; }
@@ -84,6 +92,9 @@ if ($action === 'list') {
     echo json_encode($staff, JSON_UNESCAPED_UNICODE);
     exit;
 }
+
+// ── 寫入操作需要 isAdmin ─────────────────────────────────────────────────
+require_admin();
 
 // ── POST only below ──────────────────────────────────────────────────────
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -194,6 +205,60 @@ if ($action === 'add_history') {
     if (!$found) { http_response_code(404); echo json_encode(['error' => 'not found']); exit; }
     writeStaff($file, $staff);
     echo json_encode(['ok' => true], JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
+if ($action === 'delete_history') {
+    $id    = trim($body['id'] ?? '');
+    $entry = $body['entry'] ?? null;
+    if (!$id || !$entry) {
+        http_response_code(400); echo json_encode(['error' => 'id and entry required']); exit;
+    }
+    $staff = readStaff($file);
+    $found = false;
+    foreach ($staff as &$s) {
+        if ($s['id'] === $id) {
+            $s['employmentHistory'] = array_values(array_filter(
+                $s['employmentHistory'] ?? [],
+                fn($h) => !(
+                    $h['date']   === ($entry['date']   ?? '') &&
+                    $h['action'] === ($entry['action'] ?? '') &&
+                    ($h['note'] ?? '') === ($entry['note'] ?? '')
+                )
+            ));
+            $found = true;
+            break;
+        }
+    }
+    unset($s);
+    if (!$found) { http_response_code(404); echo json_encode(['error' => 'not found']); exit; }
+    writeStaff($file, $staff);
+    echo json_encode(['ok' => true]);
+    exit;
+}
+
+if ($action === 'reinstate') {
+    $id   = trim($body['id']   ?? '');
+    $date = trim($body['date'] ?? date('Y-m-d'));
+    $note = trim($body['note'] ?? '');
+    if (!$id) { http_response_code(400); echo json_encode(['error' => 'id required']); exit; }
+    $staff = readStaff($file);
+    $found = false;
+    foreach ($staff as &$s) {
+        if ($s['id'] === $id) {
+            $s['status']    = '在職';
+            $s['leaveDate'] = '';
+            if (!isset($s['employmentHistory'])) $s['employmentHistory'] = [];
+            $s['employmentHistory'][] = ['date' => $date, 'action' => '復職', 'note' => $note];
+            usort($s['employmentHistory'], fn($a,$b) => strcmp($a['date'], $b['date']));
+            $found = true;
+            break;
+        }
+    }
+    unset($s);
+    if (!$found) { http_response_code(404); echo json_encode(['error' => 'not found']); exit; }
+    writeStaff($file, $staff);
+    echo json_encode(['ok' => true]);
     exit;
 }
 

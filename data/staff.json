@@ -30,7 +30,8 @@
         "note": "正式掛保於開闊策略",
         "countsSeniority": true
       }
-    ]
+    ],
+    "isAdmin": true
   },
   {
     "id": "quintus",
@@ -93,7 +94,8 @@
         "note": "開譜國際（目前在職）",
         "countsSeniority": true
       }
-    ]
+    ],
+    "isAdmin": true
   },
   {
     "id": "sophie",
@@ -168,7 +170,8 @@
         "note": "留職停薪結束，開譜國際（目前在職）",
         "countsSeniority": true
       }
-    ]
+    ],
+    "isAdmin": true
   },
   {
     "id": "jamie",
@@ -201,7 +204,8 @@
         "note": "開譜 → 開闊策略",
         "countsSeniority": true
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "fangyan",
@@ -228,7 +232,8 @@
         "note": "開譜國際",
         "countsSeniority": true
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "cissy",
@@ -255,7 +260,8 @@
         "note": "開譜國際",
         "countsSeniority": true
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "matsu",
@@ -282,7 +288,8 @@
         "note": "開譜國際",
         "countsSeniority": true
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "joy",
@@ -315,7 +322,8 @@
         "note": "開譜 → 開闊策略",
         "countsSeniority": true
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "amy",
@@ -342,7 +350,8 @@
         "note": "開譜國際",
         "countsSeniority": true
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "vanessa",
@@ -369,7 +378,8 @@
         "note": "開闊策略",
         "countsSeniority": true
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "mark",
@@ -414,7 +424,8 @@
         "note": "開闊 → 開譜（換投保單位，連續在職）",
         "countsSeniority": true
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "lisa",
@@ -441,7 +452,8 @@
         "note": "開闊策略",
         "countsSeniority": true
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "staff1780071089",
@@ -468,7 +480,8 @@
         "note": "開譜國際",
         "countsSeniority": true
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "staff1780409129",
@@ -484,7 +497,7 @@
     "birthday": "1993-12-03",
     "isManager": false,
     "gender": "女",
-    "employmentType": "約聘",
+    "employmentType": "部分工時",
     "probationEndDate": "",
     "emergencyContactName": "林忠文",
     "emergencyContactPhone": "0912-746200",
@@ -501,7 +514,8 @@
         "note": "投保金額不變，轉部分工時",
         "countsSeniority": false
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "staff411061945",
@@ -552,7 +566,9 @@
         "note": "開闊策略（重新入職，年資重新起算）",
         "countsSeniority": true
       }
-    ]
+    ],
+    "isAdmin": false,
+    "leaveExempt": true
   },
   {
     "id": "staff411061956",
@@ -579,7 +595,9 @@
         "note": "開譜國際（部分工時部分工時，不計年資）",
         "countsSeniority": false
       }
-    ]
+    ],
+    "isAdmin": false,
+    "leaveExempt": true
   },
   {
     "id": "staff411061967",
@@ -606,7 +624,8 @@
         "note": "開闊策略（定期契約，顧展人員，月薪制）",
         "countsSeniority": true
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "staff411061979",
@@ -699,7 +718,8 @@
         "note": "",
         "countsSeniority": false
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "staff411061992",
@@ -744,7 +764,8 @@
         "note": "",
         "countsSeniority": false
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "staff411062004",
@@ -837,7 +858,8 @@
         "note": "確定年資3年11個月（含部分工時、愛鄉）",
         "countsSeniority": false
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "staff411062017",
@@ -870,7 +892,8 @@
         "note": "",
         "countsSeniority": false
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "staff411062029",
@@ -909,7 +932,8 @@
         "note": "",
         "countsSeniority": false
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "staff411062042",
@@ -942,7 +966,8 @@
         "note": "",
         "countsSeniority": false
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "staff411062055",
@@ -975,7 +1000,8 @@
         "note": "",
         "countsSeniority": false
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "staff411062067",
@@ -1008,7 +1034,8 @@
         "note": "",
         "countsSeniority": false
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "staff411062079",
@@ -1041,7 +1068,8 @@
         "note": "在職3天",
         "countsSeniority": false
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "staff411062090",
@@ -1074,7 +1102,8 @@
         "note": "",
         "countsSeniority": false
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "staff411062100",
@@ -1107,7 +1136,8 @@
         "note": "",
         "countsSeniority": false
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "staff411062112",
@@ -1140,7 +1170,8 @@
         "note": "",
         "countsSeniority": false
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "staff411062123",
@@ -1173,7 +1204,8 @@
         "note": "在職僅1天",
         "countsSeniority": false
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "staff411062136",
@@ -1206,7 +1238,8 @@
         "note": "",
         "countsSeniority": false
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "staff411062147",
@@ -1245,7 +1278,8 @@
         "note": "",
         "countsSeniority": false
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "staff411062159",
@@ -1278,7 +1312,8 @@
         "note": "",
         "countsSeniority": false
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "staff411062172",
@@ -1311,7 +1346,8 @@
         "note": "",
         "countsSeniority": false
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "staff411062185",
@@ -1344,7 +1380,8 @@
         "note": "",
         "countsSeniority": false
       }
-    ]
+    ],
+    "isAdmin": false
   },
   {
     "id": "staff411062196",
@@ -1377,6 +1414,7 @@
         "note": "",
         "countsSeniority": false
       }
-    ]
+    ],
+    "isAdmin": false
   }
 ]
