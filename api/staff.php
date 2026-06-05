@@ -33,10 +33,14 @@ function writeStaff(string $file, array $data): void {
 
 function sanitizeEntry(array $body, array $base): array {
     $s = $base;
-    foreach (['name','group','company','title','phone','email','status','joinDate','leaveDate','birthday','gender','employmentType','probationEndDate','emergencyContactName','emergencyContactPhone'] as $f) {
+    foreach (['name','group','company','title','phone','email','status','joinDate','leaveDate','birthday','gender','employmentType','probationEndDate','emergencyContactName','emergencyContactPhone','lineUserId'] as $f) {
         if (array_key_exists($f, $body)) $s[$f] = trim((string)($body[$f] ?? ''));
     }
     if (array_key_exists('isManager', $body)) $s['isManager'] = (bool)$body['isManager'];
+    if (array_key_exists('requireClockApproval', $body)) $s['requireClockApproval'] = (bool)$body['requireClockApproval'];
+    if (array_key_exists('attendancePolicy', $body) && in_array($body['attendancePolicy'], ['strict','flexible'])) {
+        $s['attendancePolicy'] = $body['attendancePolicy'];
+    }
     if (array_key_exists('employmentHistory', $body) && is_array($body['employmentHistory'])) {
         $s['employmentHistory'] = $body['employmentHistory'];
     }
@@ -55,6 +59,9 @@ function normalizeEntry(array $s): array {
         'emergencyContactName'  => '',
         'emergencyContactPhone' => '',
         'employmentHistory'     => [],
+        'lineUserId'            => '',
+        'requireClockApproval'  => false,
+        'attendancePolicy'      => 'flexible',
     ];
     foreach ($defaults as $k => $v) {
         if (!array_key_exists($k, $s)) $s[$k] = $v;
@@ -138,9 +145,16 @@ if ($action === 'create') {
         'emergencyContactName'  => '',
         'emergencyContactPhone' => '',
         'employmentHistory'     => [],
+        'lineUserId'            => '',
+        'requireClockApproval'  => false,
+        'attendancePolicy'      => 'flexible',
     ];
     $entry = sanitizeEntry($body, $defaults);
     $entry['id'] = $id;
+    // 工讀生預設需要主管審核忘打卡
+    if (($entry['employmentType'] ?? '正職') === '工讀生') {
+        $entry['requireClockApproval'] = true;
+    }
     // 自動加「到職」歷程
     if (!empty($entry['joinDate'])) {
         appendHistory($entry, $entry['joinDate'], '到職');
@@ -269,6 +283,47 @@ if ($action === 'delete') {
     $staff = array_filter($staff, fn($s) => $s['id'] !== $id);
     writeStaff($file, $staff);
     echo json_encode(['ok' => true]);
+    exit;
+}
+
+// ── bindLine：供 LIFF 打卡系統綁定 LINE User ID，使用 LIFF_BIND_TOKEN 驗證 ──
+// 不需要 Google OAuth，改用共用 token（與 attendance API 共用同一個 secret）
+if ($action === 'bindLine') {
+    $bindToken = defined('LIFF_BIND_TOKEN') ? LIFF_BIND_TOKEN : (getenv('LIFF_BIND_TOKEN') ?: '');
+    $reqToken  = trim($body['bindToken'] ?? '');
+    if (!$bindToken || $reqToken !== $bindToken) {
+        http_response_code(403);
+        echo json_encode(['error' => 'invalid token']);
+        exit;
+    }
+    $staffId    = trim($body['staffId']    ?? '');
+    $lineUserId = trim($body['lineUserId'] ?? '');
+    if (!$staffId || !$lineUserId) {
+        http_response_code(400);
+        echo json_encode(['error' => 'staffId and lineUserId required']);
+        exit;
+    }
+    $staff = readStaff($file);
+    // 防止同一 lineUserId 綁定兩人
+    foreach ($staff as $s) {
+        if (($s['lineUserId'] ?? '') === $lineUserId && $s['id'] !== $staffId) {
+            http_response_code(409);
+            echo json_encode(['error' => 'lineUserId already bound to another staff']);
+            exit;
+        }
+    }
+    $found = false;
+    foreach ($staff as &$s) {
+        if ($s['id'] === $staffId) {
+            $s['lineUserId'] = $lineUserId;
+            $found = true;
+            break;
+        }
+    }
+    unset($s);
+    if (!$found) { http_response_code(404); echo json_encode(['error' => 'staff not found']); exit; }
+    writeStaff($file, $staff);
+    echo json_encode(['ok' => true], JSON_UNESCAPED_UNICODE);
     exit;
 }
 
