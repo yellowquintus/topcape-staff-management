@@ -195,6 +195,13 @@ export default function StaffDrawer({ staff, onClose, onEdit, onResign, onDelete
             </Section>
           )}
 
+          {/* 吉時開工打卡 */}
+          <Section title="吉時開工打卡">
+            <InfoRow label="LINE User ID" value={staff.lineUserId || '（未設定）'} />
+            <InfoRow label="打卡政策" value={staff.attendancePolicy === 'strict' ? '嚴格' : '彈性'} />
+            <InfoRow label="忘打卡審核" value={staff.requireClockApproval ? '需主管審核' : '自動通過'} />
+          </Section>
+
           {/* 雇用歷程 */}
           <Section title="雇用歷程">
             {history.length === 0 ? (

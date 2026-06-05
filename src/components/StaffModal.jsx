@@ -26,6 +26,7 @@ export default function StaffModal({ mode, staff, onSave, onClose }) {
     joinDate: '', leaveDate: '', birthday: '', isManager: false,
     gender: '', employmentType: '正職', probationEndDate: '',
     emergencyContactName: '', emergencyContactPhone: '',
+    lineUserId: '', attendancePolicy: 'flexible', requireClockApproval: false,
   });
   const [errors, setErrors] = useState({});
 
@@ -145,6 +146,32 @@ export default function StaffModal({ mode, staff, onSave, onClose }) {
                 <input value={form.emergencyContactPhone || ''} onChange={e => set('emergencyContactPhone', e.target.value)}
                   className={inputCls()} placeholder="0912-345678" />
               </Field>
+            </div>
+          </div>
+          <div className="border-t border-gray-100 pt-4">
+            <p className="text-xs font-medium text-gray-400 mb-3">吉時開工打卡</p>
+            <div className="space-y-3">
+              <Field label="LINE User ID">
+                <input value={form.lineUserId || ''} onChange={e => set('lineUserId', e.target.value)}
+                  className={inputCls()} placeholder="Uxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" />
+                <p className="text-xs text-gray-400 mt-1">同仁在 LINE 吉時開工傳「我的ID」可取得</p>
+              </Field>
+              <div className="grid grid-cols-2 gap-4">
+                <Field label="打卡政策">
+                  <select value={form.attendancePolicy || 'flexible'} onChange={e => set('attendancePolicy', e.target.value)} className={inputCls()}>
+                    <option value="flexible">彈性</option>
+                    <option value="strict">嚴格</option>
+                  </select>
+                </Field>
+                <Field label="忘打卡審核">
+                  <label className="flex items-center gap-2 mt-2 cursor-pointer select-none">
+                    <input type="checkbox" checked={!!form.requireClockApproval}
+                      onChange={e => set('requireClockApproval', e.target.checked)}
+                      className="w-4 h-4 accent-[#7a00df] cursor-pointer" />
+                    <span className="text-sm text-gray-700">需主管審核</span>
+                  </label>
+                </Field>
+              </div>
             </div>
           </div>
           <div className="pt-2 flex gap-3 justify-end border-t border-gray-100">
