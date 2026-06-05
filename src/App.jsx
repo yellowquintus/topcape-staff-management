@@ -3,6 +3,7 @@ import { AnimatePresence } from 'motion/react';
 import StaffTable from './components/StaffTable';
 import StaffModal from './components/StaffModal';
 import StaffDrawer from './components/StaffDrawer';
+import MissedClockPanel from './components/MissedClockPanel';
 import { fetchStaff, createStaff, updateStaff, deleteStaff } from './api';
 
 const GROUPS = ['全部', '管理組', '企劃組', '設計組', '基地組'];
@@ -16,6 +17,8 @@ export default function App() {
   const [drawerStaff, setDrawerStaff] = useState(null);
   const [modal, setModal]             = useState(null);
   const [toast, setToast]             = useState(null);
+  const [mainTab, setMainTab]         = useState('staff'); // 'staff' | 'attendance'
+  const [pendingCount, setPendingCount] = useState(0);
 
   const showToast = (msg, type = 'success') => {
     setToast({ msg, type });
@@ -104,18 +107,52 @@ export default function App() {
             同仁資料管理
           </span>
           <div className="ml-auto flex items-center gap-2">
-            <span className="text-sm text-[#aaa]">{activeCount} 位在職</span>
-            <button
-              onClick={() => setModal({ mode: 'add' })}
-              className="border border-[#ebebeb] text-[#555] hover:border-[#ccc] px-3 py-1.5 rounded-full text-xs font-medium transition cursor-pointer"
-            >
-              ＋ 新增同仁
-            </button>
+            {/* 主頁籤 */}
+            <div className="flex rounded-lg border border-gray-200 bg-white overflow-hidden">
+              <button
+                onClick={() => setMainTab('staff')}
+                className={`px-3 py-1.5 text-sm font-medium transition-colors cursor-pointer
+                  ${mainTab === 'staff' ? 'bg-[#40CE94] text-white' : 'text-gray-600 hover:bg-gray-50'}`}
+              >
+                同仁管理
+              </button>
+              <button
+                onClick={() => setMainTab('attendance')}
+                className={`px-3 py-1.5 text-sm font-medium transition-colors cursor-pointer flex items-center gap-1.5
+                  ${mainTab === 'attendance' ? 'bg-[#40CE94] text-white' : 'text-gray-600 hover:bg-gray-50'}`}
+              >
+                忘打卡審核
+                {pendingCount > 0 && (
+                  <span className={`text-xs rounded-full w-4 h-4 flex items-center justify-center font-bold
+                    ${mainTab === 'attendance' ? 'bg-white text-[#40CE94]' : 'bg-red-500 text-white'}`}>
+                    {pendingCount}
+                  </span>
+                )}
+              </button>
+            </div>
+            {mainTab === 'staff' && (
+              <>
+                <span className="text-sm text-[#aaa]">{activeCount} 位在職</span>
+                <button
+                  onClick={() => setModal({ mode: 'add' })}
+                  className="border border-[#ebebeb] text-[#555] hover:border-[#ccc] px-3 py-1.5 rounded-full text-xs font-medium transition cursor-pointer"
+                >
+                  ＋ 新增同仁
+                </button>
+              </>
+            )}
           </div>
         </div>
       </header>
 
       <main className="max-w-6xl mx-auto px-4 py-6">
+        {/* 忘打卡審核 panel */}
+        {mainTab === 'attendance' && (
+          <MissedClockPanel onPendingCount={setPendingCount} />
+        )}
+
+        {/* 同仁管理 */}
+        {mainTab !== 'attendance' && <>
         {/* Controls */}
         <div className="flex flex-wrap items-center gap-3 mb-4">
           {/* 在職 / 離職 Tab */}
@@ -177,6 +214,7 @@ export default function App() {
             顯示 {filtered.length} 筆 / 共 {staffList.length} 筆
           </p>
         )}
+        </>}
       </main>
 
       {/* Modal */}

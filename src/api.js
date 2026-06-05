@@ -57,6 +57,24 @@ export async function deleteHistoryEntry(id, entry) {
   return res.json();
 }
 
+const ATTENDANCE_ADMIN = '/tools/attendance/api/admin.php';
+
+export async function fetchMissedClockRequests() {
+  const res = await fetch(`${ATTENDANCE_ADMIN}?action=list`);
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return res.json();
+}
+
+export async function reviewMissedClock(id, action, note = '') {
+  const res = await fetch(`${ATTENDANCE_ADMIN}?action=review`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ id, action, note }),
+  });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return res.json();
+}
+
 export async function reinstateStaff(id, date, note = '') {
   const res = await fetch(`${BASE}?action=reinstate`, {
     method: 'POST',
