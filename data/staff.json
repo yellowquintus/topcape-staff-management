@@ -597,7 +597,8 @@
       }
     ],
     "isAdmin": false,
-    "leaveExempt": true
+    "leaveExempt": true,
+    "excludeAttendance": true
   },
   {
     "id": "staff411061967",
@@ -625,7 +626,9 @@
         "countsSeniority": true
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "excludeAttendance": true,
+    "leaveExempt": true
   },
   {
     "id": "staff411061979",
