@@ -1419,5 +1419,29 @@
       }
     ],
     "isAdmin": false
+  },
+  {
+    "id": "fenying",
+    "name": "詹黃鳳英",
+    "group": "基地組",
+    "company": "開闊",
+    "title": "",
+    "phone": "",
+    "email": "",
+    "status": "在職",
+    "joinDate": "",
+    "leaveDate": "",
+    "birthday": "",
+    "isManager": false,
+    "gender": "女",
+    "employmentType": "兼職",
+    "probationEndDate": "",
+    "emergencyContactName": "",
+    "emergencyContactPhone": "",
+    "isAdmin": false,
+    "isCleaner": true,
+    "leaveExempt": true,
+    "excludeAttendance": true,
+    "employmentHistory": []
   }
 ]

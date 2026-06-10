@@ -38,6 +38,7 @@ function sanitizeEntry(array $body, array $base): array {
     }
     if (array_key_exists('isManager', $body)) $s['isManager'] = (bool)$body['isManager'];
     if (array_key_exists('requireClockApproval', $body)) $s['requireClockApproval'] = (bool)$body['requireClockApproval'];
+    if (array_key_exists('isCleaner', $body)) $s['isCleaner'] = (bool)$body['isCleaner'];
     if (array_key_exists('attendancePolicy', $body) && in_array($body['attendancePolicy'], ['strict','flexible'])) {
         $s['attendancePolicy'] = $body['attendancePolicy'];
     }

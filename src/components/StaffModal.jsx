@@ -149,6 +149,15 @@ export default function StaffModal({ mode, staff, onSave, onClose }) {
             </div>
           </div>
           <div className="border-t border-gray-100 pt-4">
+            <p className="text-xs font-medium text-gray-400 mb-3">基地排班</p>
+            <label className="flex items-center gap-2 cursor-pointer select-none">
+              <input type="checkbox" checked={!!form.isCleaner}
+                onChange={e => set('isCleaner', e.target.checked)}
+                className="w-4 h-4 accent-[#7a00df] cursor-pointer" />
+              <span className="text-sm text-gray-700">清潔人員（排班月曆的清潔欄預設顯示此人）</span>
+            </label>
+          </div>
+          <div className="border-t border-gray-100 pt-4">
             <p className="text-xs font-medium text-gray-400 mb-3">吉時開工打卡</p>
             <div className="space-y-3">
               <Field label="LINE User ID">
