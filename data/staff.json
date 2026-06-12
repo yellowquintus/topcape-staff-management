@@ -538,7 +538,8 @@
     "company": "開闊",
     "title": "專案經理",
     "phone": "0927-966380",
-    "email": "fair.min@msa.hinet.net",
+    "email": "a0927966380@gmail.com",
+    "lineId": "U03275a8f74ce47de24d6de6a7c8279bc",
     "status": "在職",
     "joinDate": "2025-06-01",
     "leaveDate": "",
@@ -583,7 +584,8 @@
     ],
     "isAdmin": false,
     "leaveExempt": true,
-    "lineUserId": ""
+    "lineUserId": "",
+    "skipRest": true
   },
   {
     "id": "staff411061956",
