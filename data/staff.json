@@ -31,7 +31,8 @@
         "countsSeniority": true
       }
     ],
-    "isAdmin": true
+    "isAdmin": true,
+    "lineUserId": "Ucf2439647afda7543d61630531102e0a"
   },
   {
     "id": "quintus",
@@ -95,7 +96,8 @@
         "countsSeniority": true
       }
     ],
-    "isAdmin": true
+    "isAdmin": true,
+    "lineUserId": "Ude2a5659495b0da62eaf8037073e44b8"
   },
   {
     "id": "sophie",
@@ -171,7 +173,8 @@
         "countsSeniority": true
       }
     ],
-    "isAdmin": true
+    "isAdmin": true,
+    "lineUserId": "U90eab1f55e854b7209461715a6f50690"
   },
   {
     "id": "jamie",
@@ -205,7 +208,8 @@
         "countsSeniority": true
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": "Ub23d384bbac038c036e802efb9e0a480"
   },
   {
     "id": "fangyan",
@@ -233,7 +237,8 @@
         "countsSeniority": true
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": "Uedb91677c02ddb397b61ad0efc7d3282"
   },
   {
     "id": "cissy",
@@ -261,7 +266,8 @@
         "countsSeniority": true
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": "Ua522f21a20d4cc1210519f3b134351ab"
   },
   {
     "id": "matsu",
@@ -289,7 +295,8 @@
         "countsSeniority": true
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": "Uc10e232243d98eca362a2fb597812da0"
   },
   {
     "id": "joy",
@@ -323,7 +330,8 @@
         "countsSeniority": true
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": "U9bac4fcbafebe4d9f1a02019d41dcb0f"
   },
   {
     "id": "amy",
@@ -351,7 +359,8 @@
         "countsSeniority": true
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": "U85c1926d61d0037f1424997f05b3b97d"
   },
   {
     "id": "vanessa",
@@ -379,7 +388,8 @@
         "countsSeniority": true
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": "U01d552d849e2e1788672c4f60f041b4b"
   },
   {
     "id": "mark",
@@ -425,7 +435,8 @@
         "countsSeniority": true
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": "U5ea76853d43cf5c1519d8e1fd3c904db"
   },
   {
     "id": "lisa",
@@ -453,7 +464,8 @@
         "countsSeniority": true
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": "U199017cb8f50b5c5fa994213c6a63e18"
   },
   {
     "id": "staff1780071089",
@@ -481,7 +493,8 @@
         "countsSeniority": true
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": "U307f3a146a5ab0c4b967be60b4f5a386"
   },
   {
     "id": "staff1780409129",
@@ -515,7 +528,8 @@
         "countsSeniority": false
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": "U853f14e931d10ba20d63b63f0bbf40ad"
   },
   {
     "id": "staff411061945",
@@ -568,7 +582,8 @@
       }
     ],
     "isAdmin": false,
-    "leaveExempt": true
+    "leaveExempt": true,
+    "lineUserId": ""
   },
   {
     "id": "staff411061956",
@@ -598,7 +613,9 @@
     ],
     "isAdmin": false,
     "leaveExempt": true,
-    "excludeAttendance": true
+    "excludeAttendance": true,
+    "lineUserId": "",
+    "annualLeaveExempt": true
   },
   {
     "id": "staff411061967",
@@ -628,7 +645,8 @@
     ],
     "isAdmin": false,
     "excludeAttendance": true,
-    "leaveExempt": true
+    "leaveExempt": true,
+    "lineUserId": ""
   },
   {
     "id": "staff411061979",
@@ -722,7 +740,8 @@
         "countsSeniority": false
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": ""
   },
   {
     "id": "staff411061992",
@@ -768,7 +787,8 @@
         "countsSeniority": false
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": ""
   },
   {
     "id": "staff411062004",
@@ -862,7 +882,8 @@
         "countsSeniority": false
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": ""
   },
   {
     "id": "staff411062017",
@@ -896,7 +917,8 @@
         "countsSeniority": false
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": ""
   },
   {
     "id": "staff411062029",
@@ -936,7 +958,8 @@
         "countsSeniority": false
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": ""
   },
   {
     "id": "staff411062042",
@@ -970,7 +993,8 @@
         "countsSeniority": false
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": ""
   },
   {
     "id": "staff411062055",
@@ -1004,7 +1028,8 @@
         "countsSeniority": false
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": ""
   },
   {
     "id": "staff411062067",
@@ -1038,7 +1063,8 @@
         "countsSeniority": false
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": ""
   },
   {
     "id": "staff411062079",
@@ -1072,7 +1098,8 @@
         "countsSeniority": false
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": ""
   },
   {
     "id": "staff411062090",
@@ -1106,7 +1133,8 @@
         "countsSeniority": false
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": ""
   },
   {
     "id": "staff411062100",
@@ -1140,7 +1168,8 @@
         "countsSeniority": false
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": ""
   },
   {
     "id": "staff411062112",
@@ -1174,7 +1203,8 @@
         "countsSeniority": false
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": ""
   },
   {
     "id": "staff411062123",
@@ -1208,7 +1238,8 @@
         "countsSeniority": false
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": ""
   },
   {
     "id": "staff411062136",
@@ -1242,7 +1273,8 @@
         "countsSeniority": false
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": ""
   },
   {
     "id": "staff411062147",
@@ -1282,7 +1314,8 @@
         "countsSeniority": false
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": ""
   },
   {
     "id": "staff411062159",
@@ -1316,7 +1349,8 @@
         "countsSeniority": false
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": ""
   },
   {
     "id": "staff411062172",
@@ -1350,7 +1384,8 @@
         "countsSeniority": false
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": ""
   },
   {
     "id": "staff411062185",
@@ -1384,7 +1419,8 @@
         "countsSeniority": false
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": ""
   },
   {
     "id": "staff411062196",
@@ -1418,7 +1454,8 @@
         "countsSeniority": false
       }
     ],
-    "isAdmin": false
+    "isAdmin": false,
+    "lineUserId": ""
   },
   {
     "id": "fenying",
@@ -1442,6 +1479,8 @@
     "isCleaner": true,
     "leaveExempt": true,
     "excludeAttendance": true,
-    "employmentHistory": []
+    "employmentHistory": [],
+    "lineUserId": "",
+    "annualLeaveExempt": true
   }
 ]

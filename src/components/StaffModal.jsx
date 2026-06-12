@@ -165,7 +165,7 @@ export default function StaffModal({ mode, staff, onSave, onClose }) {
                   className={inputCls()} placeholder="Uxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" />
                 <p className="text-xs text-gray-400 mt-1">同仁在 LINE 吉時開工傳「我的ID」可取得</p>
               </Field>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-3 gap-4">
                 <Field label="打卡政策">
                   <select value={form.attendancePolicy || 'flexible'} onChange={e => set('attendancePolicy', e.target.value)} className={inputCls()}>
                     <option value="flexible">彈性</option>
@@ -173,12 +173,16 @@ export default function StaffModal({ mode, staff, onSave, onClose }) {
                   </select>
                 </Field>
                 <Field label="忘打卡審核">
-                  <label className="flex items-center gap-2 mt-2 cursor-pointer select-none">
-                    <input type="checkbox" checked={!!form.requireClockApproval}
-                      onChange={e => set('requireClockApproval', e.target.checked)}
-                      className="w-4 h-4 accent-[#7a00df] cursor-pointer" />
-                    <span className="text-sm text-gray-700">需主管審核</span>
-                  </label>
+                  <select value={form.requireClockApproval ? 'manual' : 'auto'} onChange={e => set('requireClockApproval', e.target.value === 'manual')} className={inputCls()}>
+                    <option value="auto">自動通過</option>
+                    <option value="manual">需主管審核</option>
+                  </select>
+                </Field>
+                <Field label="假單審核">
+                  <select value={form.leaveApprovalRequired !== false ? 'manual' : 'auto'} onChange={e => set('leaveApprovalRequired', e.target.value !== 'auto')} className={inputCls()}>
+                    <option value="manual">需要審核</option>
+                    <option value="auto">自動核准</option>
+                  </select>
                 </Field>
               </div>
             </div>

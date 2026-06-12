@@ -15,6 +15,14 @@ export default function App() {
   const [activeTab, setActiveTab]     = useState('在職');
   const [drawerStaff, setDrawerStaff] = useState(null);
   const [modal, setModal]             = useState(null);
+  const [approvalSettings, setApprovalSettings] = useState({});
+
+  useEffect(() => {
+    fetch('/tools/leave/api/approval_settings.php?action=get', { credentials: 'include' })
+      .then(r => r.json())
+      .then(d => { if (d && typeof d === 'object' && !d.error) setApprovalSettings(d); })
+      .catch(() => {});
+  }, []);
   const [toast, setToast]             = useState(null);
 
   const showToast = (msg, type = 'success') => {
@@ -53,6 +61,19 @@ export default function App() {
       } else {
         await updateStaff(data);
         showToast('已更新資料');
+      }
+      // 同步假單審核設定到 leave 系統（若有提供 leaveApprovalRequired 欄位）
+      if (data.id && 'leaveApprovalRequired' in data) {
+        try {
+          const existing = await fetch('/tools/leave/api/approval_settings.php?action=get', { credentials: 'include' }).then(r => r.json());
+          const updated = { ...existing, [data.id]: data.leaveApprovalRequired !== false };
+          await fetch('/tools/leave/api/approval_settings.php?action=save', {
+            method: 'POST',
+            credentials: 'include',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(updated),
+          });
+        } catch { /* 假單審核同步失敗不阻斷主流程 */ }
       }
       setModal(null);
       load();
@@ -165,8 +186,8 @@ export default function App() {
         ) : (
           <StaffTable
             staffList={filtered}
-            onView={staff => setDrawerStaff(staff)}
-            onEdit={staff => setModal({ mode: 'edit', staff })}
+            onView={staff => setDrawerStaff({ ...staff, leaveApprovalRequired: approvalSettings[staff.id] !== false })}
+            onEdit={staff => setModal({ mode: 'edit', staff: { ...staff, leaveApprovalRequired: approvalSettings[staff.id] !== false } })}
             onResign={handleResign}
             onDelete={handleDelete}
           />
@@ -197,7 +218,7 @@ export default function App() {
             key={drawerStaff.id}
             staff={drawerStaff}
             onClose={() => setDrawerStaff(null)}
-            onEdit={staff => setModal({ mode: 'edit', staff })}
+            onEdit={staff => setModal({ mode: 'edit', staff: { ...staff, leaveApprovalRequired: approvalSettings[staff.id] !== false } })}
             onResign={handleResign}
             onDelete={handleDelete}
             onRefresh={load}
